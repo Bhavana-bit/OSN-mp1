@@ -1,0 +1,104 @@
+{
+    "testcase": {
+        "section": "D.2",
+        "description": "Tests that a background command that fails produces an 'exited abnormally' message.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "sh -c 'exit 1' &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[1\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "echo check abnormal exit",
+                "sequential_outputs": [
+                    {
+                        "text": "check abnormal exit",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [
+                    {
+                        "text": "sh with pid \\\\d+ exited abnormally",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:26:05.330731+05:30",
+            "type": "output",
+            "details": "[16:56:05] "
+        },
+        {
+            "time": "2025-11-19T22:26:05.330946+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:26:05.331058+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd=\"sh -c 'exit 1' &\", sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[1\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:26:05.382661+05:30",
+            "type": "output",
+            "details": "[1] 28"
+        },
+        {
+            "time": "2025-11-19T22:26:05.382917+05:30",
+            "type": "output",
+            "details": "[16:56:05] "
+        },
+        {
+            "time": "2025-11-19T22:26:05.382973+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:26:05.383103+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='echo check abnormal exit', sequential_outputs=[Line(text='check abnormal exit', is_re=False, negative_match=False)], nonsequential_outputs=[Line(text='sh with pid \\\\\\\\d+ exited abnormally', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:26:05.433769+05:30",
+            "type": "output",
+            "details": "1': 1: Syntax error: Unterminated quoted string"
+        },
+        {
+            "time": "2025-11-19T22:26:05.436253+05:30",
+            "type": "output",
+            "details": "check abnormal exit"
+        },
+        {
+            "time": "2025-11-19T22:26:05.436706+05:30",
+            "type": "output",
+            "details": "[16:56:05] "
+        },
+        {
+            "time": "2025-11-19T22:26:05.436801+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:56:05] <unknown@osntesting:~> sh -c 'exit 1' &\n[1] 28\r\n[16:56:05] <unknown@osntesting:~> echo check abnormal exit\n1': 1: Syntax error: Unterminated quoted string\r\ncheck abnormal exit\r\n[16:56:05] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:26:04,481 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f014e6abd0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_f3e33468be3049e786f65b81296e9c84', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp4jtrfl_r:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1454468\n    child_fd: 135\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017192800>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:26:05,330 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:05.330731+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:05] \"\n    }\n2025-11-19 22:26:05,330 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:05.330946+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:05,331 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:05.331058+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd=\\\"sh -c 'exit 1' &\\\", sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[1\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:26:05,382 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:05.382661+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1] 28\"\n    }\n2025-11-19 22:26:05,382 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:05.382917+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:05] \"\n    }\n2025-11-19 22:26:05,382 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:05.382973+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:05,383 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:05.383103+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='echo check abnormal exit', sequential_outputs=[Line(text='check abnormal exit', is_re=False, negative_match=False)], nonsequential_outputs=[Line(text='sh with pid \\\\\\\\\\\\\\\\d+ exited abnormally', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:26:05,433 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:05.433769+05:30\",\n        \"type\": \"output\",\n        \"details\": \"1': 1: Syntax error: Unterminated quoted string\"\n    }\n2025-11-19 22:26:05,436 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:05.436253+05:30\",\n        \"type\": \"output\",\n        \"details\": \"check abnormal exit\"\n    }\n2025-11-19 22:26:05,436 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:05.436706+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:05] \"\n    }\n2025-11-19 22:26:05,436 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:05.436801+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:05,944 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f014e6abd0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_f3e33468be3049e786f65b81296e9c84', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp4jtrfl_r:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:56:05] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1454468\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017192800>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:26:05,944 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmp4jtrfl_r\n"
+}

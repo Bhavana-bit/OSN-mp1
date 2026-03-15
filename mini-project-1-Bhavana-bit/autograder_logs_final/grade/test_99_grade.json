@@ -1,0 +1,14 @@
+{
+    "test_id": "test_99",
+    "section": "D.1",
+    "description": "Tests that state changes (CWD) are maintained across commands in a single sequential execution string.",
+    "passed": false,
+    "failure": {
+        "step_index": 0,
+        "command": "mkdir test_dir ; hop test_dir ; pwd ; hop .. ; rm -r test_dir",
+        "reason": "Incorrect number of output lines for sequential check.",
+        "expected": 1,
+        "actual": 3
+    },
+    "score": 0.0
+}

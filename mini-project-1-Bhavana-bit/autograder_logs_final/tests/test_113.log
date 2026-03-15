@@ -1,0 +1,142 @@
+{
+    "testcase": {
+        "section": "E.1",
+        "description": "Checks if activities correctly removes a process from its list after it has terminated.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "sleep 0.5 &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[1\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "sleep 0.5",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "sleep 0.5",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "activities",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 3.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-30T15:11:39.303955+05:30",
+            "type": "output",
+            "details": "[09:41:39] "
+        },
+        {
+            "time": "2025-11-30T15:11:39.304293+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:39.304568+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 0.5 &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[1\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:39.356078+05:30",
+            "type": "output",
+            "details": "[1] 28"
+        },
+        {
+            "time": "2025-11-30T15:11:39.356366+05:30",
+            "type": "output",
+            "details": "[09:41:39] "
+        },
+        {
+            "time": "2025-11-30T15:11:39.356469+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:39.356593+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 0.5', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:39.909257+05:30",
+            "type": "output",
+            "details": "[09:41:39] "
+        },
+        {
+            "time": "2025-11-30T15:11:39.909681+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:39.909982+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 0.5', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:40.464059+05:30",
+            "type": "output",
+            "details": "[09:41:40] "
+        },
+        {
+            "time": "2025-11-30T15:11:40.464565+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:40.464934+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='activities', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:40.516506+05:30",
+            "type": "output",
+            "details": "Job ID\tPID\tState\t\tCommand"
+        },
+        {
+            "time": "2025-11-30T15:11:40.516826+05:30",
+            "type": "output",
+            "details": "[1]\t28\tRunning\t\tsleep"
+        },
+        {
+            "time": "2025-11-30T15:11:40.516977+05:30",
+            "type": "output",
+            "details": "[09:41:40] "
+        },
+        {
+            "time": "2025-11-30T15:11:40.517060+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[09:41:39] <unknown@osntesting:~> sleep 0.5 &\n[1] 28\r\n[09:41:39] <unknown@osntesting:~> sleep 0.5\n[09:41:39] <unknown@osntesting:~> sleep 0.5\n[09:41:40] <unknown@osntesting:~> activities\nJob ID\tPID\tState\t\tCommand\r\n[1]\t28\tRunning\t\tsleep\r\n[09:41:40] <unknown@osntesting:~> ",
+    "py_log": "2025-11-30 15:11:38,474 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x70b05437eb40>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_f37f3de02cb047afbacd404a9eac5710', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpcntc7ho6:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1082108\n    child_fd: 97\n    closed: False\n    timeout: 3.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x70b0545553c0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 15:11:39,304 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:39.303955+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:39] \"\n    }\n2025-11-30 15:11:39,304 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:39.304293+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:39,304 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:39.304568+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 0.5 &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[1\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:39,356 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:39.356078+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1] 28\"\n    }\n2025-11-30 15:11:39,356 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:39.356366+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:39] \"\n    }\n2025-11-30 15:11:39,356 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:39.356469+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:39,356 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:39.356593+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 0.5', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-30 15:11:39,909 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:39.909257+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:39] \"\n    }\n2025-11-30 15:11:39,909 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:39.909681+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:39,910 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:39.909982+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 0.5', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-30 15:11:40,464 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:40.464059+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:40] \"\n    }\n2025-11-30 15:11:40,464 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:40.464565+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:40,465 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:40.464934+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='activities', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:40,516 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:40.516506+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Job ID\\tPID\\tState\\t\\tCommand\"\n    }\n2025-11-30 15:11:40,516 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:40.516826+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1]\\t28\\tRunning\\t\\tsleep\"\n    }\n2025-11-30 15:11:40,517 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:40.516977+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:40] \"\n    }\n2025-11-30 15:11:40,517 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:40.517060+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:40,922 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x70b05437eb40>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_f37f3de02cb047afbacd404a9eac5710', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpcntc7ho6:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[09:41:40] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: 129\n    flag_eof: False\n    pid: 1082108\n    child_fd: -1\n    closed: True\n    timeout: 3.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x70b0545553c0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 15:11:40,922 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Cleaned up temp_dir: /tmp/tmpcntc7ho6\n"
+}

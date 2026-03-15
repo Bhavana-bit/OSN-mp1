@@ -1,0 +1,52 @@
+rm -rf bin/*.o shell.out
+mkdir -p bin
+gcc -Wall -Iinclude -c src/A3.c -o bin/A3.o
+gcc -Wall -Iinclude -c src/B1.c -o bin/B1.o
+gcc -Wall -Iinclude -c src/B2.c -o bin/B2.o
+gcc -Wall -Iinclude -c src/B3.c -o bin/B3.o
+gcc -Wall -Iinclude -c src/C1.c -o bin/C1.o
+gcc -Wall -Iinclude -c src/C3.c -o bin/C3.o
+gcc -Wall -Iinclude -c src/C4.c -o bin/C4.o
+gcc -Wall -Iinclude -c src/C_2.c -o bin/C_2.o
+gcc -Wall -Iinclude -c src/D1.c -o bin/D1.o
+gcc -Wall -Iinclude -c src/D2.c -o bin/D2.o
+src/D2.c: In function 'execute_d2_shell':
+src/D2.c:41:41: warning: unused variable 'numofcmds' [-Wunused-variable]
+   41 |         int args = 0, i = 0, start = 0, numofcmds = 0;
+      |                                         ^~~~~~~~~
+gcc -Wall -Iinclude -c src/E1.c -o bin/E1.o
+src/E1.c: In function 'execute_e1_shell':
+src/E1.c:34:9: warning: implicit declaration of function 'build_prompt' [-Wimplicit-function-declaration]
+   34 |         build_prompt(prompt, sizeof(prompt));
+      |         ^~~~~~~~~~~~
+gcc -Wall -Iinclude -c src/E2.c -o bin/E2.o
+gcc -Wall -Iinclude -c src/E3.c -o bin/E3.o
+In file included from include/E3.h:18,
+                 from src/E3.c:1:
+include/D2.h:6: warning: "MAX_CMD_LEN" redefined
+    6 | #define MAX_CMD_LEN 256
+      | 
+In file included from src/E3.c:1:
+include/E3.h:16: note: this is the location of the previous definition
+   16 | #define MAX_CMD_LEN 1024
+      | 
+gcc -Wall -Iinclude -c src/E4.c -o bin/E4.o
+In file included from include/E4.h:17,
+                 from src/E4.c:1:
+include/D2.h:6: warning: "MAX_CMD_LEN" redefined
+    6 | #define MAX_CMD_LEN 256
+      | 
+In file included from src/E4.c:1:
+include/E4.h:15: note: this is the location of the previous definition
+   15 | #define MAX_CMD_LEN 1024
+      | 
+gcc -Wall -Iinclude -c src/main.c -o bin/main.o
+In file included from src/main.c:35:
+include/E3.h:16: warning: "MAX_CMD_LEN" redefined
+   16 | #define MAX_CMD_LEN 1024
+      | 
+In file included from src/main.c:34:
+include/E2.h:17: note: this is the location of the previous definition
+   17 | #define MAX_CMD_LEN 256
+      | 
+gcc -Wall -Iinclude -o shell.out bin/A3.o bin/B1.o bin/B2.o bin/B3.o bin/C1.o bin/C3.o bin/C4.o bin/C_2.o bin/D1.o bin/D2.o bin/E1.o bin/E2.o bin/E3.o bin/E4.o bin/main.o

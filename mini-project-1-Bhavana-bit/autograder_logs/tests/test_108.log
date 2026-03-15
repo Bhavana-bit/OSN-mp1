@@ -1,0 +1,109 @@
+{
+    "testcase": {
+        "section": "D.2",
+        "description": "Tests that a background process is correctly detached from terminal input, causing it to receive an immediate EOF.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "wc -l &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[1\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "echo foreground",
+                "sequential_outputs": [
+                    {
+                        "text": "foreground",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [
+                    {
+                        "text": "^ *0 *",
+                        "is_re": true,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "wc with pid \\\\d+ exited normally",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:26:15.209098+05:30",
+            "type": "output",
+            "details": "[16:56:15] "
+        },
+        {
+            "time": "2025-11-19T22:26:15.209332+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:26:15.209465+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='wc -l &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[1\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:26:15.261047+05:30",
+            "type": "output",
+            "details": "[1] 28"
+        },
+        {
+            "time": "2025-11-19T22:26:15.261371+05:30",
+            "type": "output",
+            "details": "[16:56:15] "
+        },
+        {
+            "time": "2025-11-19T22:26:15.261456+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:26:15.261565+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='echo foreground', sequential_outputs=[Line(text='foreground', is_re=False, negative_match=False)], nonsequential_outputs=[Line(text='^ *0 *', is_re=True, negative_match=False), Line(text='wc with pid \\\\\\\\d+ exited normally', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:26:15.312129+05:30",
+            "type": "output",
+            "details": "0"
+        },
+        {
+            "time": "2025-11-19T22:26:15.313670+05:30",
+            "type": "output",
+            "details": "foreground"
+        },
+        {
+            "time": "2025-11-19T22:26:15.313948+05:30",
+            "type": "output",
+            "details": "[16:56:15] "
+        },
+        {
+            "time": "2025-11-19T22:26:15.313997+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:56:15] <unknown@osntesting:~> wc -l &\n[1] 28\r\n[16:56:15] <unknown@osntesting:~> echo foreground\n0\r\nforeground\r\n[16:56:15] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:26:14,778 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f014e19490>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_36264489a1824f3c80f8423afee3bc1f', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpv1547dl5:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1484653\n    child_fd: 134\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017191f00>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:26:15,209 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:15.209098+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:15] \"\n    }\n2025-11-19 22:26:15,209 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:15.209332+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:15,209 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:15.209465+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='wc -l &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[1\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:26:15,261 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:15.261047+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1] 28\"\n    }\n2025-11-19 22:26:15,261 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:15.261371+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:15] \"\n    }\n2025-11-19 22:26:15,261 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:15.261456+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:15,261 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:15.261565+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='echo foreground', sequential_outputs=[Line(text='foreground', is_re=False, negative_match=False)], nonsequential_outputs=[Line(text='^ *0 *', is_re=True, negative_match=False), Line(text='wc with pid \\\\\\\\\\\\\\\\d+ exited normally', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:26:15,312 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:15.312129+05:30\",\n        \"type\": \"output\",\n        \"details\": \"0\"\n    }\n2025-11-19 22:26:15,313 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:15.313670+05:30\",\n        \"type\": \"output\",\n        \"details\": \"foreground\"\n    }\n2025-11-19 22:26:15,313 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:15.313948+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:15] \"\n    }\n2025-11-19 22:26:15,314 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:15.313997+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:16,017 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f014e19490>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_36264489a1824f3c80f8423afee3bc1f', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpv1547dl5:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:56:15] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1484653\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017191f00>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:26:16,018 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmpv1547dl5\n"
+}

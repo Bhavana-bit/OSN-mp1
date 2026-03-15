@@ -1,0 +1,24 @@
+{
+    "testcase": {
+        "section": "A.1",
+        "description": "Checks if the shell displays the correct initial prompt. The home directory is /app, so the prompt should display ~.",
+        "cmds": [],
+        "timeout": 2.0,
+        "strict_prompt": true,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-30T05:22:30.359820+05:30",
+            "type": "output",
+            "details": "[23:52:30] "
+        },
+        {
+            "time": "2025-11-30T05:22:30.359973+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[23:52:30] <unknown@osntesting:~> ",
+    "py_log": "2025-11-30 05:22:29,927 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x7985180a1670>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_3312048c1ca84a988f14dfca520b1fae', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpm2pv1jqd:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 2592645\n    child_fd: 37\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x79851bf22440>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 05:22:30,359 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:22:30.359820+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[23:52:30] \"\n    }\n2025-11-30 05:22:30,360 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:22:30.359973+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 05:22:30,763 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x7985180a1670>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_3312048c1ca84a988f14dfca520b1fae', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpm2pv1jqd:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[23:52:30] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: 129\n    flag_eof: False\n    pid: 2592645\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x79851bf22440>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 05:22:30,763 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - INFO - Cleaned up temp_dir: /tmp/tmpm2pv1jqd\n"
+}

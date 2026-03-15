@@ -1,0 +1,60 @@
+{
+    "testcase": {
+        "section": "A.2",
+        "description": "Tests if the shell can handle a very long but syntactically valid input.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "Invalid Syntax!",
+                        "is_re": false,
+                        "negative_match": true
+                    }
+                ],
+                "ignore_output": true,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-30T05:22:35.537224+05:30",
+            "type": "output",
+            "details": "[23:52:35] "
+        },
+        {
+            "time": "2025-11-30T05:22:35.537552+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T05:22:35.537685+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z', sequential_outputs=[], nonsequential_outputs=[Line(text='Invalid Syntax!', is_re=False, negative_match=True)], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T05:22:35.589877+05:30",
+            "type": "output",
+            "details": "Command not found!"
+        },
+        {
+            "time": "2025-11-30T05:22:35.590193+05:30",
+            "type": "output",
+            "details": "[23:52:35] "
+        },
+        {
+            "time": "2025-11-30T05:22:35.590242+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[23:52:35] <unknown@osntesting:~> a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z\nCommand not found!\r\n[23:52:35] <unknown@osntesting:~> ",
+    "py_log": "2025-11-30 05:22:34,251 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x7984fac7f8c0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_b567c19925a446399760a40dde099556', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpo3qno8kg:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 2596767\n    child_fd: 43\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x79851bf22440>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 05:22:35,537 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:22:35.537224+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[23:52:35] \"\n    }\n2025-11-30 05:22:35,537 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:22:35.537552+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 05:22:35,537 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:22:35.537685+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z', sequential_outputs=[], nonsequential_outputs=[Line(text='Invalid Syntax!', is_re=False, negative_match=True)], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-30 05:22:35,590 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:22:35.589877+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Command not found!\"\n    }\n2025-11-30 05:22:35,590 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:22:35.590193+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[23:52:35] \"\n    }\n2025-11-30 05:22:35,590 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:22:35.590242+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 05:22:35,994 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x7984fac7f8c0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_b567c19925a446399760a40dde099556', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpo3qno8kg:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[23:52:35] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: 129\n    flag_eof: False\n    pid: 2596767\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x79851bf22440>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 05:22:35,994 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - INFO - Cleaned up temp_dir: /tmp/tmpo3qno8kg\n"
+}

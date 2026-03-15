@@ -1,0 +1,136 @@
+{
+    "testcase": {
+        "section": "D.2",
+        "description": "Tests a sequential command followed by a background command, ensuring the first part waits and the second does not.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "echo sequential part ; sleep 1 &",
+                "sequential_outputs": [
+                    {
+                        "text": "sequential part",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[1\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "sleep 0.9",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "echo check cleanup",
+                "sequential_outputs": [
+                    {
+                        "text": "check cleanup",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [
+                    {
+                        "text": "(sleep\\\\s1|sleep) with pid \\\\d+ exited normally",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 3.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-30T18:07:42.337579+05:30",
+            "type": "output",
+            "details": "[12:37:42] "
+        },
+        {
+            "time": "2025-11-30T18:07:42.338689+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T18:07:42.339064+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='echo sequential part ; sleep 1 &', sequential_outputs=[Line(text='sequential part', is_re=False, negative_match=False)], nonsequential_outputs=[Line(text='\\\\\\\\[1\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T18:07:42.391042+05:30",
+            "type": "output",
+            "details": "[1] 28"
+        },
+        {
+            "time": "2025-11-30T18:07:42.391314+05:30",
+            "type": "output",
+            "details": "[12:37:42] "
+        },
+        {
+            "time": "2025-11-30T18:07:42.391370+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T18:07:42.391471+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 0.9', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T18:07:42.442233+05:30",
+            "type": "output",
+            "details": "sequential part ; sleep 1"
+        },
+        {
+            "time": "2025-11-30T18:07:43.346341+05:30",
+            "type": "output",
+            "details": "[12:37:43] "
+        },
+        {
+            "time": "2025-11-30T18:07:43.346731+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T18:07:43.347004+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='echo check cleanup', sequential_outputs=[Line(text='check cleanup', is_re=False, negative_match=False)], nonsequential_outputs=[Line(text='(sleep\\\\\\\\s1|sleep) with pid \\\\\\\\d+ exited normally', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T18:07:43.399530+05:30",
+            "type": "output",
+            "details": "check cleanup"
+        },
+        {
+            "time": "2025-11-30T18:07:43.399932+05:30",
+            "type": "output",
+            "details": "[12:37:43] "
+        },
+        {
+            "time": "2025-11-30T18:07:43.400122+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[12:37:42] <unknown@osntesting:~> echo sequential part ; sleep 1 &\n[1] 28\r\n[12:37:42] <unknown@osntesting:~> sleep 0.9\nsequential part ; sleep 1\r\n[12:37:43] <unknown@osntesting:~> echo check cleanup\ncheck cleanup\r\n[12:37:43] <unknown@osntesting:~> ",
+    "py_log": "2025-11-30 18:07:41,904 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x7c4d6122ee70>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_c93486e6582d440daacb35ac7f312147', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpg2tcd53o:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 923780\n    child_fd: 42\n    closed: False\n    timeout: 3.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x7c4d611faf80>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 18:07:42,338 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:42.337579+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[12:37:42] \"\n    }\n2025-11-30 18:07:42,338 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:42.338689+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 18:07:42,339 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:42.339064+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='echo sequential part ; sleep 1 &', sequential_outputs=[Line(text='sequential part', is_re=False, negative_match=False)], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[1\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 18:07:42,391 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:42.391042+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1] 28\"\n    }\n2025-11-30 18:07:42,391 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:42.391314+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[12:37:42] \"\n    }\n2025-11-30 18:07:42,391 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:42.391370+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 18:07:42,391 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:42.391471+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 0.9', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 18:07:42,442 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:42.442233+05:30\",\n        \"type\": \"output\",\n        \"details\": \"sequential part ; sleep 1\"\n    }\n2025-11-30 18:07:43,346 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:43.346341+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[12:37:43] \"\n    }\n2025-11-30 18:07:43,346 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:43.346731+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 18:07:43,347 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:43.347004+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='echo check cleanup', sequential_outputs=[Line(text='check cleanup', is_re=False, negative_match=False)], nonsequential_outputs=[Line(text='(sleep\\\\\\\\\\\\\\\\s1|sleep) with pid \\\\\\\\\\\\\\\\d+ exited normally', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 18:07:43,399 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:43.399530+05:30\",\n        \"type\": \"output\",\n        \"details\": \"check cleanup\"\n    }\n2025-11-30 18:07:43,400 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:43.399932+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[12:37:43] \"\n    }\n2025-11-30 18:07:43,400 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:43.400122+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 18:07:43,807 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x7c4d6122ee70>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_c93486e6582d440daacb35ac7f312147', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpg2tcd53o:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[12:37:43] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: 129\n    flag_eof: False\n    pid: 923780\n    child_fd: -1\n    closed: True\n    timeout: 3.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x7c4d611faf80>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 18:07:43,807 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - INFO - Cleaned up temp_dir: /tmp/tmpg2tcd53o\n"
+}

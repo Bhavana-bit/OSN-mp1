@@ -1,0 +1,64 @@
+{
+    "testcase": {
+        "section": "A.3",
+        "description": "Tests for 'Invalid Syntax!' with consecutive pipe operators.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "a || b",
+                "sequential_outputs": [
+                    {
+                        "text": "Invalid Syntax!",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:23:52.583482+05:30",
+            "type": "output",
+            "details": "[16:53:52] "
+        },
+        {
+            "time": "2025-11-19T22:23:52.583903+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:23:52.584264+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='a || b', sequential_outputs=[Line(text='Invalid Syntax!', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:23:52.636306+05:30",
+            "type": "output",
+            "details": "execvp: No such file or directory"
+        },
+        {
+            "time": "2025-11-19T22:23:52.636823+05:30",
+            "type": "output",
+            "details": "execvp: No such file or directory"
+        },
+        {
+            "time": "2025-11-19T22:23:52.636939+05:30",
+            "type": "output",
+            "details": "[16:53:52] "
+        },
+        {
+            "time": "2025-11-19T22:23:52.636988+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:53:52] <unknown@osntesting:~> a || b\nexecvp: No such file or directory\r\nexecvp: No such file or directory\r\n[16:53:52] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:23:51,897 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f018489400>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_f7e2e04a68a747dfb715a7a4efaf3a3a', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpeo76boqq:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1072073\n    child_fd: 99\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e2bc40>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:23:52,583 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:23:52.583482+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:53:52] \"\n    }\n2025-11-19 22:23:52,583 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:23:52.583903+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:23:52,584 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:23:52.584264+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='a || b', sequential_outputs=[Line(text='Invalid Syntax!', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:23:52,636 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:23:52.636306+05:30\",\n        \"type\": \"output\",\n        \"details\": \"execvp: No such file or directory\"\n    }\n2025-11-19 22:23:52,636 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:23:52.636823+05:30\",\n        \"type\": \"output\",\n        \"details\": \"execvp: No such file or directory\"\n    }\n2025-11-19 22:23:52,636 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:23:52.636939+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:53:52] \"\n    }\n2025-11-19 22:23:52,637 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:23:52.636988+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:23:53,043 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f018489400>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_f7e2e04a68a747dfb715a7a4efaf3a3a', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpeo76boqq:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:53:52] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: 129\n    flag_eof: False\n    pid: 1072073\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e2bc40>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:23:53,043 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmpeo76boqq\n"
+}

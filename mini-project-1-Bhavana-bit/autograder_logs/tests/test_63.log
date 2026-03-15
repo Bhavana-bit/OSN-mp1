@@ -1,0 +1,290 @@
+{
+    "testcase": {
+        "section": "B.3",
+        "description": "Tests that log-related commands (log, log purge, log execute) are not themselves added to the command history.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "hop command1",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "log",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop command2",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "log purge",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "log",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop command3",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "log execute 1",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "log",
+                "sequential_outputs": [
+                    {
+                        "text": "hop command3",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:25:05.293721+05:30",
+            "type": "output",
+            "details": "[16:55:05] "
+        },
+        {
+            "time": "2025-11-19T22:25:05.293929+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:05.294067+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop command1', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:05.345247+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:05.345527+05:30",
+            "type": "output",
+            "details": "[16:55:05] "
+        },
+        {
+            "time": "2025-11-19T22:25:05.345586+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:05.345665+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='log', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:05.397619+05:30",
+            "type": "output",
+            "details": "Command History:"
+        },
+        {
+            "time": "2025-11-19T22:25:05.397903+05:30",
+            "type": "output",
+            "details": "1: hop command1"
+        },
+        {
+            "time": "2025-11-19T22:25:05.397969+05:30",
+            "type": "output",
+            "details": "2: log"
+        },
+        {
+            "time": "2025-11-19T22:25:05.398027+05:30",
+            "type": "output",
+            "details": "[16:55:05] "
+        },
+        {
+            "time": "2025-11-19T22:25:05.398074+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:05.398141+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop command2', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:05.449696+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:05.449978+05:30",
+            "type": "output",
+            "details": "[16:55:05] "
+        },
+        {
+            "time": "2025-11-19T22:25:05.450049+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:05.450123+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='log purge', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:05.522618+05:30",
+            "type": "output",
+            "details": "Command history cleared"
+        },
+        {
+            "time": "2025-11-19T22:25:05.522910+05:30",
+            "type": "output",
+            "details": "[16:55:05] "
+        },
+        {
+            "time": "2025-11-19T22:25:05.522965+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:05.523046+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='log', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:05.574323+05:30",
+            "type": "output",
+            "details": "Command History:"
+        },
+        {
+            "time": "2025-11-19T22:25:05.574509+05:30",
+            "type": "output",
+            "details": "1: log"
+        },
+        {
+            "time": "2025-11-19T22:25:05.574622+05:30",
+            "type": "output",
+            "details": "[16:55:05] "
+        },
+        {
+            "time": "2025-11-19T22:25:05.574688+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:05.574771+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop command3', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:05.647829+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:05.648207+05:30",
+            "type": "output",
+            "details": "[16:55:05] "
+        },
+        {
+            "time": "2025-11-19T22:25:05.648286+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:05.648397+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='log execute 1', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:05.699572+05:30",
+            "type": "output",
+            "details": "Executing: log execute 1"
+        },
+        {
+            "time": "2025-11-19T22:25:05.700105+05:30",
+            "type": "output",
+            "details": "Command not found!"
+        },
+        {
+            "time": "2025-11-19T22:25:05.700199+05:30",
+            "type": "output",
+            "details": "[16:55:05] "
+        },
+        {
+            "time": "2025-11-19T22:25:05.700242+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:05.700342+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='log', sequential_outputs=[Line(text='hop command3', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:05.751337+05:30",
+            "type": "output",
+            "details": "Command History:"
+        },
+        {
+            "time": "2025-11-19T22:25:05.751623+05:30",
+            "type": "output",
+            "details": "1: log"
+        },
+        {
+            "time": "2025-11-19T22:25:05.751703+05:30",
+            "type": "output",
+            "details": "2: hop command3"
+        },
+        {
+            "time": "2025-11-19T22:25:05.751767+05:30",
+            "type": "output",
+            "details": "3: log"
+        },
+        {
+            "time": "2025-11-19T22:25:05.751832+05:30",
+            "type": "output",
+            "details": "[16:55:05] "
+        },
+        {
+            "time": "2025-11-19T22:25:05.751872+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:55:05] <unknown@osntesting:~> hop command1\nNo such directory!\r\n[16:55:05] <unknown@osntesting:~> log\nCommand History:\r\n1: hop command1\r\n2: log\r\n[16:55:05] <unknown@osntesting:~> hop command2\nNo such directory!\r\n[16:55:05] <unknown@osntesting:~> log purge\nCommand history cleared\r\n[16:55:05] <unknown@osntesting:~> log\nCommand History:\r\n1: log\r\n[16:55:05] <unknown@osntesting:~> hop command3\nNo such directory!\r\n[16:55:05] <unknown@osntesting:~> log execute 1\nExecuting: log execute 1\r\nCommand not found!\r\n[16:55:05] <unknown@osntesting:~> log\nCommand History:\r\n1: log\r\n2: hop command3\r\n3: log\r\n[16:55:05] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:25:04,312 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f01703c380>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_fe6e6c74ec86484a8363b76051c3d60b', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpa47ij1hh:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1275082\n    child_fd: 124\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e29480>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:05,293 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.293721+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:05] \"\n    }\n2025-11-19 22:25:05,293 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.293929+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:05,294 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.294067+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop command1', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:05,345 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.345247+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:05,345 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.345527+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:05] \"\n    }\n2025-11-19 22:25:05,345 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.345586+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:05,345 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.345665+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='log', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:05,397 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.397619+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Command History:\"\n    }\n2025-11-19 22:25:05,397 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.397903+05:30\",\n        \"type\": \"output\",\n        \"details\": \"1: hop command1\"\n    }\n2025-11-19 22:25:05,397 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.397969+05:30\",\n        \"type\": \"output\",\n        \"details\": \"2: log\"\n    }\n2025-11-19 22:25:05,398 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.398027+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:05] \"\n    }\n2025-11-19 22:25:05,398 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.398074+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:05,398 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.398141+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop command2', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:05,449 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.449696+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:05,450 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.449978+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:05] \"\n    }\n2025-11-19 22:25:05,450 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.450049+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:05,450 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.450123+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='log purge', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:25:05,522 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.522618+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Command history cleared\"\n    }\n2025-11-19 22:25:05,522 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.522910+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:05] \"\n    }\n2025-11-19 22:25:05,522 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.522965+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:05,523 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.523046+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='log', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:25:05,574 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.574323+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Command History:\"\n    }\n2025-11-19 22:25:05,574 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.574509+05:30\",\n        \"type\": \"output\",\n        \"details\": \"1: log\"\n    }\n2025-11-19 22:25:05,574 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.574622+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:05] \"\n    }\n2025-11-19 22:25:05,574 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.574688+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:05,574 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.574771+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop command3', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:05,647 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.647829+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:05,648 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.648207+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:05] \"\n    }\n2025-11-19 22:25:05,648 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.648286+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:05,648 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.648397+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='log execute 1', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:05,699 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.699572+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Executing: log execute 1\"\n    }\n2025-11-19 22:25:05,700 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.700105+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Command not found!\"\n    }\n2025-11-19 22:25:05,700 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.700199+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:05] \"\n    }\n2025-11-19 22:25:05,700 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.700242+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:05,700 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.700342+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='log', sequential_outputs=[Line(text='hop command3', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:25:05,751 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.751337+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Command History:\"\n    }\n2025-11-19 22:25:05,751 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.751623+05:30\",\n        \"type\": \"output\",\n        \"details\": \"1: log\"\n    }\n2025-11-19 22:25:05,751 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.751703+05:30\",\n        \"type\": \"output\",\n        \"details\": \"2: hop command3\"\n    }\n2025-11-19 22:25:05,751 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.751767+05:30\",\n        \"type\": \"output\",\n        \"details\": \"3: log\"\n    }\n2025-11-19 22:25:05,751 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.751832+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:05] \"\n    }\n2025-11-19 22:25:05,751 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:05.751872+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:06,156 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f01703c380>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_fe6e6c74ec86484a8363b76051c3d60b', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpa47ij1hh:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:55:05] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: 129\n    flag_eof: False\n    pid: 1275082\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e29480>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:06,157 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmpa47ij1hh\n"
+}

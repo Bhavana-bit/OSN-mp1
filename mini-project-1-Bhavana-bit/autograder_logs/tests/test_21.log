@@ -1,0 +1,59 @@
+{
+    "testcase": {
+        "section": "A.3",
+        "description": "Tests for 'Invalid Syntax!' when an operator is used as a filename for redirection.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "a > |",
+                "sequential_outputs": [
+                    {
+                        "text": "Invalid Syntax!",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:24:00.291978+05:30",
+            "type": "output",
+            "details": "[16:54:00] "
+        },
+        {
+            "time": "2025-11-19T22:24:00.292322+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:24:00.292564+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='a > |', sequential_outputs=[Line(text='Invalid Syntax!', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:24:00.343639+05:30",
+            "type": "output",
+            "details": "Invalid pipe syntax"
+        },
+        {
+            "time": "2025-11-19T22:24:00.343901+05:30",
+            "type": "output",
+            "details": "[16:54:00] "
+        },
+        {
+            "time": "2025-11-19T22:24:00.343952+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:54:00] <unknown@osntesting:~> a > |\nInvalid pipe syntax\r\n[16:54:00] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:23:59,341 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f014e4c0b0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_80e6385e362a4ee59c0f7ec11439746f', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpdplxo0eu:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1092495\n    child_fd: 108\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e2a500>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:24:00,292 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:00.291978+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:54:00] \"\n    }\n2025-11-19 22:24:00,292 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:00.292322+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:24:00,292 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:00.292564+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='a > |', sequential_outputs=[Line(text='Invalid Syntax!', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:24:00,343 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:00.343639+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Invalid pipe syntax\"\n    }\n2025-11-19 22:24:00,343 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:00.343901+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:54:00] \"\n    }\n2025-11-19 22:24:00,343 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:00.343952+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:24:01,024 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - WARNING - Failed to remove container tester_80e6385e362a4ee59c0f7ec11439746f: 409 Client Error for http+docker://localhost/v1.51/containers/3e44b796ddea3defc927104c0a53390b646ca20faa9dbc906b2a5f3af2e5f6d7?v=False&link=False&force=True: Conflict (\"removal of container 3e44b796ddea3defc927104c0a53390b646ca20faa9dbc906b2a5f3af2e5f6d7 is already in progress\")\n2025-11-19 22:24:01,024 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f014e4c0b0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_80e6385e362a4ee59c0f7ec11439746f', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpdplxo0eu:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:54:00] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1092495\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e2a500>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:24:01,025 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmpdplxo0eu\n"
+}

@@ -1,0 +1,119 @@
+{
+    "testcase": {
+        "section": "C.3",
+        "description": "Tests combined input and append-output redirection to the same file.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "echo initial content > same_file.txt",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "cat < same_file.txt >> same_file.txt",
+                "sequential_outputs": [
+                    {
+                        "text": "cat: -: input file is output file",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "cat same_file.txt",
+                "sequential_outputs": [
+                    {
+                        "text": "initial content",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-30T05:24:45.308896+05:30",
+            "type": "output",
+            "details": "[23:54:45] "
+        },
+        {
+            "time": "2025-11-30T05:24:45.309167+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T05:24:45.309320+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='echo initial content > same_file.txt', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T05:24:45.367402+05:30",
+            "type": "output",
+            "details": "[23:54:45] "
+        },
+        {
+            "time": "2025-11-30T05:24:45.367972+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T05:24:45.368278+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='cat < same_file.txt >> same_file.txt', sequential_outputs=[Line(text='cat: -: input file is output file', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T05:24:45.492671+05:30",
+            "type": "output",
+            "details": "Syntax error: no output file specified"
+        },
+        {
+            "time": "2025-11-30T05:24:45.493089+05:30",
+            "type": "output",
+            "details": "[23:54:45] "
+        },
+        {
+            "time": "2025-11-30T05:24:45.493221+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T05:24:45.493385+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='cat same_file.txt', sequential_outputs=[Line(text='initial content', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T05:24:45.547557+05:30",
+            "type": "output",
+            "details": "initial content"
+        },
+        {
+            "time": "2025-11-30T05:24:45.549118+05:30",
+            "type": "output",
+            "details": "[23:54:45] "
+        },
+        {
+            "time": "2025-11-30T05:24:45.549359+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[23:54:45] <unknown@osntesting:~> echo initial content > same_file.txt\n[23:54:45] <unknown@osntesting:~> cat < same_file.txt >> same_file.txt\nSyntax error: no output file specified\r\n[23:54:45] <unknown@osntesting:~> cat same_file.txt\ninitial content\r\n[23:54:45] <unknown@osntesting:~> ",
+    "py_log": "2025-11-30 05:24:44,591 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x7984fa5b5eb0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_f0873e6b7882455fb946f96047d0c18b', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmph0muob20:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 2701039\n    child_fd: 208\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x798518665fc0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 05:24:45,309 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.308896+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[23:54:45] \"\n    }\n2025-11-30 05:24:45,309 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.309167+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 05:24:45,309 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.309320+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='echo initial content > same_file.txt', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 05:24:45,367 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.367402+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[23:54:45] \"\n    }\n2025-11-30 05:24:45,368 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.367972+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 05:24:45,368 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.368278+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='cat < same_file.txt >> same_file.txt', sequential_outputs=[Line(text='cat: -: input file is output file', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 05:24:45,492 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.492671+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Syntax error: no output file specified\"\n    }\n2025-11-30 05:24:45,493 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.493089+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[23:54:45] \"\n    }\n2025-11-30 05:24:45,493 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.493221+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 05:24:45,493 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.493385+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='cat same_file.txt', sequential_outputs=[Line(text='initial content', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 05:24:45,548 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.547557+05:30\",\n        \"type\": \"output\",\n        \"details\": \"initial content\"\n    }\n2025-11-30 05:24:45,549 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.549118+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[23:54:45] \"\n    }\n2025-11-30 05:24:45,549 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:24:45.549359+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 05:24:45,959 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x7984fa5b5eb0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_f0873e6b7882455fb946f96047d0c18b', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmph0muob20:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[23:54:45] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: 129\n    flag_eof: False\n    pid: 2701039\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x798518665fc0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 05:24:45,959 - tester.b2399c2e-1dfa-4be4-bcba-c3c5888588a6 - INFO - Cleaned up temp_dir: /tmp/tmph0muob20\n"
+}

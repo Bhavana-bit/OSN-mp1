@@ -1,0 +1,219 @@
+{
+    "testcase": {
+        "section": "E.1",
+        "description": "Checks if activities correctly lists multiple running background processes in lexicographical order.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "sleep 2 &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[1\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "cat > meow.txt &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[2\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "wc &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[3\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "activities",
+                "sequential_outputs": [
+                    {
+                        "text": "\\\\[\\\\d+\\\\] : (cat|cat\\\\s>\\\\smeow.txt) - Stopped",
+                        "is_re": true,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "\\\\[\\\\d+\\\\] : (sleep|sleep\\\\s2) - Running",
+                        "is_re": true,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "\\\\[\\\\d+\\\\] : wc - Stopped",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-30T15:11:36.254363+05:30",
+            "type": "output",
+            "details": "[09:41:36] "
+        },
+        {
+            "time": "2025-11-30T15:11:36.254557+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:36.254659+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 2 &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[1\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:36.305715+05:30",
+            "type": "output",
+            "details": "[1] 28"
+        },
+        {
+            "time": "2025-11-30T15:11:36.306003+05:30",
+            "type": "output",
+            "details": "[09:41:36] "
+        },
+        {
+            "time": "2025-11-30T15:11:36.306131+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:36.306311+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='cat > meow.txt &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[2\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:36.357265+05:30",
+            "type": "output",
+            "details": "[2] 29"
+        },
+        {
+            "time": "2025-11-30T15:11:36.357422+05:30",
+            "type": "output",
+            "details": "[09:41:36] "
+        },
+        {
+            "time": "2025-11-30T15:11:36.357498+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:36.357570+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:36.408595+05:30",
+            "type": "output",
+            "details": "[09:41:36] "
+        },
+        {
+            "time": "2025-11-30T15:11:36.408736+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:36.408827+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='wc &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[3\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:36.460681+05:30",
+            "type": "output",
+            "details": "[3] 30"
+        },
+        {
+            "time": "2025-11-30T15:11:36.461107+05:30",
+            "type": "output",
+            "details": "[09:41:36] "
+        },
+        {
+            "time": "2025-11-30T15:11:36.461270+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:36.461570+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='activities', sequential_outputs=[Line(text='\\\\\\\\[\\\\\\\\d+\\\\\\\\] : (cat|cat\\\\\\\\s>\\\\\\\\smeow.txt) - Stopped', is_re=True, negative_match=False), Line(text='\\\\\\\\[\\\\\\\\d+\\\\\\\\] : (sleep|sleep\\\\\\\\s2) - Running', is_re=True, negative_match=False), Line(text='\\\\\\\\[\\\\\\\\d+\\\\\\\\] : wc - Stopped', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:36.512375+05:30",
+            "type": "output",
+            "details": "      0       0       0"
+        },
+        {
+            "time": "2025-11-30T15:11:36.513919+05:30",
+            "type": "output",
+            "details": "Job ID\tPID\tState\t\tCommand"
+        },
+        {
+            "time": "2025-11-30T15:11:36.514245+05:30",
+            "type": "output",
+            "details": "[2]\t29\tRunning\t\tcat"
+        },
+        {
+            "time": "2025-11-30T15:11:36.514479+05:30",
+            "type": "output",
+            "details": "[1]\t28\tRunning\t\tsleep"
+        },
+        {
+            "time": "2025-11-30T15:11:36.514668+05:30",
+            "type": "output",
+            "details": "[3]\t30\tRunning\t\twc"
+        },
+        {
+            "time": "2025-11-30T15:11:36.514860+05:30",
+            "type": "output",
+            "details": "[09:41:36] "
+        },
+        {
+            "time": "2025-11-30T15:11:36.514978+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[09:41:36] <unknown@osntesting:~> sleep 2 &\n[1] 28\r\n[09:41:36] <unknown@osntesting:~> cat > meow.txt &\n[2] 29\r\n[09:41:36] <unknown@osntesting:~> \n[09:41:36] <unknown@osntesting:~> wc &\n[3] 30\r\n[09:41:36] <unknown@osntesting:~> activities\n      0       0       0\r\nJob ID\tPID\tState\t\tCommand\r\n[2]\t29\tRunning\t\tcat\r\n[1]\t28\tRunning\t\tsleep\r\n[3]\t30\tRunning\t\twc\r\n[09:41:36] <unknown@osntesting:~> ",
+    "py_log": "2025-11-30 15:11:35,797 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x70b054364dd0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_0cbf057521ae401dabc63f78d8144db9', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp6i14q74d:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1079890\n    child_fd: 135\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x70b0545553c0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 15:11:36,254 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.254363+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:36] \"\n    }\n2025-11-30 15:11:36,254 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.254557+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:36,254 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.254659+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 2 &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[1\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:36,305 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.305715+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1] 28\"\n    }\n2025-11-30 15:11:36,306 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.306003+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:36] \"\n    }\n2025-11-30 15:11:36,306 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.306131+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:36,306 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.306311+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='cat > meow.txt &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[2\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:36,357 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.357265+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[2] 29\"\n    }\n2025-11-30 15:11:36,357 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.357422+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:36] \"\n    }\n2025-11-30 15:11:36,357 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.357498+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:36,357 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.357570+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-30 15:11:36,408 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.408595+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:36] \"\n    }\n2025-11-30 15:11:36,408 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.408736+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:36,408 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.408827+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='wc &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[3\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:36,460 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.460681+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[3] 30\"\n    }\n2025-11-30 15:11:36,461 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.461107+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:36] \"\n    }\n2025-11-30 15:11:36,461 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.461270+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:36,461 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.461570+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='activities', sequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[\\\\\\\\\\\\\\\\d+\\\\\\\\\\\\\\\\] : (cat|cat\\\\\\\\\\\\\\\\s>\\\\\\\\\\\\\\\\smeow.txt) - Stopped', is_re=True, negative_match=False), Line(text='\\\\\\\\\\\\\\\\[\\\\\\\\\\\\\\\\d+\\\\\\\\\\\\\\\\] : (sleep|sleep\\\\\\\\\\\\\\\\s2) - Running', is_re=True, negative_match=False), Line(text='\\\\\\\\\\\\\\\\[\\\\\\\\\\\\\\\\d+\\\\\\\\\\\\\\\\] : wc - Stopped', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:36,512 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.512375+05:30\",\n        \"type\": \"output\",\n        \"details\": \"      0       0       0\"\n    }\n2025-11-30 15:11:36,514 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.513919+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Job ID\\tPID\\tState\\t\\tCommand\"\n    }\n2025-11-30 15:11:36,514 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.514245+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[2]\\t29\\tRunning\\t\\tcat\"\n    }\n2025-11-30 15:11:36,514 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.514479+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1]\\t28\\tRunning\\t\\tsleep\"\n    }\n2025-11-30 15:11:36,514 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.514668+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[3]\\t30\\tRunning\\t\\twc\"\n    }\n2025-11-30 15:11:36,514 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.514860+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:36] \"\n    }\n2025-11-30 15:11:36,515 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:36.514978+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:37,139 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - WARNING - Failed to remove container tester_0cbf057521ae401dabc63f78d8144db9: 409 Client Error for http+docker://localhost/v1.51/containers/c217a9f1471d9f2bf52bdbb14ec0982c92a35e4ae2d9fc33e27fd353eed6caae?v=False&link=False&force=True: Conflict (\"removal of container c217a9f1471d9f2bf52bdbb14ec0982c92a35e4ae2d9fc33e27fd353eed6caae is already in progress\")\n2025-11-30 15:11:37,139 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x70b054364dd0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_0cbf057521ae401dabc63f78d8144db9', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp6i14q74d:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[09:41:36] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1079890\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x70b0545553c0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 15:11:37,140 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Cleaned up temp_dir: /tmp/tmp6i14q74d\n"
+}

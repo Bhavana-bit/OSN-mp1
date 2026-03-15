@@ -1,0 +1,64 @@
+{
+    "testcase": {
+        "section": "D.1",
+        "description": "Tests that state changes (CWD) are maintained across commands in a single sequential execution string.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "mkdir test_dir ; hop test_dir ; pwd ; hop .. ; rm -r test_dir",
+                "sequential_outputs": [
+                    {
+                        "text": "/app/test_dir",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:26:00.462264+05:30",
+            "type": "output",
+            "details": "[16:56:00] "
+        },
+        {
+            "time": "2025-11-19T22:26:00.462668+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:26:00.463142+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='mkdir test_dir ; hop test_dir ; pwd ; hop .. ; rm -r test_dir', sequential_outputs=[Line(text='/app/test_dir', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:26:00.516171+05:30",
+            "type": "output",
+            "details": "mkdir: invalid option -- 'r'"
+        },
+        {
+            "time": "2025-11-19T22:26:00.516428+05:30",
+            "type": "output",
+            "details": "Try 'mkdir --help' for more information."
+        },
+        {
+            "time": "2025-11-19T22:26:00.516718+05:30",
+            "type": "output",
+            "details": "[16:56:00] "
+        },
+        {
+            "time": "2025-11-19T22:26:00.516768+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:56:00] <unknown@osntesting:~> mkdir test_dir ; hop test_dir ; pwd ; hop .. ; rm -r test_dir\nmkdir: invalid option -- 'r'\r\nTry 'mkdir --help' for more information.\r\n[16:56:00] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:25:59,314 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f014ed4140>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_21bb64461e8040c1a83e398e8d36f95f', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp5_j3q0nt:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1440359\n    child_fd: 135\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017192800>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:26:00,462 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:00.462264+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:00] \"\n    }\n2025-11-19 22:26:00,462 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:00.462668+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:00,463 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:00.463142+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='mkdir test_dir ; hop test_dir ; pwd ; hop .. ; rm -r test_dir', sequential_outputs=[Line(text='/app/test_dir', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:26:00,516 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:00.516171+05:30\",\n        \"type\": \"output\",\n        \"details\": \"mkdir: invalid option -- 'r'\"\n    }\n2025-11-19 22:26:00,516 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:00.516428+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Try 'mkdir --help' for more information.\"\n    }\n2025-11-19 22:26:00,516 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:00.516718+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:00] \"\n    }\n2025-11-19 22:26:00,516 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:00.516768+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:01,298 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f014ed4140>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_21bb64461e8040c1a83e398e8d36f95f', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp5_j3q0nt:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:56:00] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1440359\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017192800>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:26:01,298 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmp5_j3q0nt\n"
+}

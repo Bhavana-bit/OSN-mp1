@@ -1,0 +1,119 @@
+{
+    "testcase": {
+        "section": "D.2",
+        "description": "Tests that a background process is correctly detached from terminal input, causing it to receive an immediate EOF.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "cat > meow.txt &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[1\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "ps aux | grep cat | grep -v grep",
+                "sequential_outputs": [
+                    {
+                        "text": ".*?T.*?cat",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-30T18:07:55.471992+05:30",
+            "type": "output",
+            "details": "[12:37:55] "
+        },
+        {
+            "time": "2025-11-30T18:07:55.472405+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T18:07:55.472695+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='cat > meow.txt &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[1\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T18:07:55.524785+05:30",
+            "type": "output",
+            "details": "[1] 28"
+        },
+        {
+            "time": "2025-11-30T18:07:55.525215+05:30",
+            "type": "output",
+            "details": "[12:37:55] "
+        },
+        {
+            "time": "2025-11-30T18:07:55.525342+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T18:07:55.525514+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T18:07:55.576514+05:30",
+            "type": "output",
+            "details": "[12:37:55] "
+        },
+        {
+            "time": "2025-11-30T18:07:55.576704+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T18:07:55.576797+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='ps aux | grep cat | grep -v grep', sequential_outputs=[Line(text='.*?T.*?cat', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T18:07:55.633173+05:30",
+            "type": "output",
+            "details": "osnuser       28  0.0  0.0      0     0 pts/0    Z+   12:37   0:00 [cat] <defunct>"
+        },
+        {
+            "time": "2025-11-30T18:07:55.633535+05:30",
+            "type": "output",
+            "details": "[12:37:55] "
+        },
+        {
+            "time": "2025-11-30T18:07:55.633649+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[12:37:55] <unknown@osntesting:~> cat > meow.txt &\n[1] 28\r\n[12:37:55] <unknown@osntesting:~> \n[12:37:55] <unknown@osntesting:~> ps aux | grep cat | grep -v grep\nosnuser       28  0.0  0.0      0     0 pts/0    Z+   12:37   0:00 [cat] <defunct>\r\n[12:37:55] <unknown@osntesting:~> ",
+    "py_log": "2025-11-30 18:07:54,171 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x7c4d611daff0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_f49ac849cb9748dcb920d8d2e509bf39', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpo5snxdph:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 933223\n    child_fd: 59\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x7c4d611fb700>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 18:07:55,472 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.471992+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[12:37:55] \"\n    }\n2025-11-30 18:07:55,472 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.472405+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 18:07:55,472 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.472695+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='cat > meow.txt &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[1\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 18:07:55,524 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.524785+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1] 28\"\n    }\n2025-11-30 18:07:55,525 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.525215+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[12:37:55] \"\n    }\n2025-11-30 18:07:55,525 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.525342+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 18:07:55,525 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.525514+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-30 18:07:55,576 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.576514+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[12:37:55] \"\n    }\n2025-11-30 18:07:55,576 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.576704+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 18:07:55,576 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.576797+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='ps aux | grep cat | grep -v grep', sequential_outputs=[Line(text='.*?T.*?cat', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 18:07:55,633 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.633173+05:30\",\n        \"type\": \"output\",\n        \"details\": \"osnuser       28  0.0  0.0      0     0 pts/0    Z+   12:37   0:00 [cat] <defunct>\"\n    }\n2025-11-30 18:07:55,633 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.633535+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[12:37:55] \"\n    }\n2025-11-30 18:07:55,633 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T18:07:55.633649+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 18:07:56,040 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x7c4d611daff0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_f49ac849cb9748dcb920d8d2e509bf39', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpo5snxdph:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[12:37:55] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: 129\n    flag_eof: False\n    pid: 933223\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x7c4d611fb700>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 18:07:56,040 - tester.0ba286d6-925e-436a-92ec-45fcc924ca82 - INFO - Cleaned up temp_dir: /tmp/tmpo5snxdph\n"
+}

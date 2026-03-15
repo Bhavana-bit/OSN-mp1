@@ -1,0 +1,134 @@
+{
+    "testcase": {
+        "section": "E.4",
+        "description": "Tests that 'bg' command resumes a stopped job in the background.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "skip_prompt_check": true,
+                "cmd": "sleep 5",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "code": "z",
+                "output": {
+                    "text": "\\\\[1\\\\] Stopped (sleep|sleep\\\\s5)",
+                    "is_re": true,
+                    "negative_match": false
+                }
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "bg 1",
+                "sequential_outputs": [
+                    {
+                        "text": "\\\\[1\\\\] (sleep|sleep\\\\s5)",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "activities",
+                "sequential_outputs": [
+                    {
+                        "text": "\\\\[\\\\d+\\\\] : (sleep|sleep\\\\s5) - Running",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-30T15:11:50.772203+05:30",
+            "type": "output",
+            "details": "[09:41:50] "
+        },
+        {
+            "time": "2025-11-30T15:11:50.772481+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:50.772584+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=True, cmd='sleep 5', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:50.822951+05:30",
+            "type": "input",
+            "details": "ControlSignal(expect_exit=False, skip_prompt_check=False, code='z', output=Line(text='\\\\\\\\[1\\\\\\\\] Stopped (sleep|sleep\\\\\\\\s5)', is_re=True, negative_match=False))"
+        },
+        {
+            "time": "2025-11-30T15:11:50.838632+05:30",
+            "type": "output",
+            "details": "[09:41:50] "
+        },
+        {
+            "time": "2025-11-30T15:11:50.838890+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:50.839223+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='bg 1', sequential_outputs=[Line(text='\\\\\\\\[1\\\\\\\\] (sleep|sleep\\\\\\\\s5)', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:50.891490+05:30",
+            "type": "output",
+            "details": "No such job"
+        },
+        {
+            "time": "2025-11-30T15:11:50.892135+05:30",
+            "type": "output",
+            "details": "[09:41:50] "
+        },
+        {
+            "time": "2025-11-30T15:11:50.892406+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:50.892797+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='activities', sequential_outputs=[Line(text='\\\\\\\\[\\\\\\\\d+\\\\\\\\] : (sleep|sleep\\\\\\\\s5) - Running', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:50.945038+05:30",
+            "type": "output",
+            "details": "No background jobs"
+        },
+        {
+            "time": "2025-11-30T15:11:50.945533+05:30",
+            "type": "output",
+            "details": "[09:41:50] "
+        },
+        {
+            "time": "2025-11-30T15:11:50.945690+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[09:41:50] <unknown@osntesting:~> sleep 5\n[09:41:50] <unknown@osntesting:~> bg 1\nNo such job\r\n[09:41:50] <unknown@osntesting:~> activities\nNo background jobs\r\n[09:41:50] <unknown@osntesting:~> ",
+    "py_log": "2025-11-30 15:11:50,278 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x70b0542cf860>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_0d8188ce602f49a49634cb9581ee0a4e', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp_bspygzh:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1091082\n    child_fd: 36\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x70b0545553c0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 15:11:50,772 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.772203+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:50] \"\n    }\n2025-11-30 15:11:50,772 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.772481+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:50,772 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.772584+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=True, cmd='sleep 5', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:50,823 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.822951+05:30\",\n        \"type\": \"input\",\n        \"details\": \"ControlSignal(expect_exit=False, skip_prompt_check=False, code='z', output=Line(text='\\\\\\\\\\\\\\\\[1\\\\\\\\\\\\\\\\] Stopped (sleep|sleep\\\\\\\\\\\\\\\\s5)', is_re=True, negative_match=False))\"\n    }\n2025-11-30 15:11:50,838 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Sent SIGTSTP to container tester_0d8188ce602f49a49634cb9581ee0a4e\n2025-11-30 15:11:50,838 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.838632+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:50] \"\n    }\n2025-11-30 15:11:50,838 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.838890+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:50,839 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.839223+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='bg 1', sequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[1\\\\\\\\\\\\\\\\] (sleep|sleep\\\\\\\\\\\\\\\\s5)', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:50,891 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.891490+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such job\"\n    }\n2025-11-30 15:11:50,892 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.892135+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:50] \"\n    }\n2025-11-30 15:11:50,892 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.892406+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:50,892 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.892797+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='activities', sequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[\\\\\\\\\\\\\\\\d+\\\\\\\\\\\\\\\\] : (sleep|sleep\\\\\\\\\\\\\\\\s5) - Running', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:50,945 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.945038+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No background jobs\"\n    }\n2025-11-30 15:11:50,945 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.945533+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:50] \"\n    }\n2025-11-30 15:11:50,945 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:50.945690+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:51,349 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x70b0542cf860>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_0d8188ce602f49a49634cb9581ee0a4e', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp_bspygzh:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[09:41:50] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: 129\n    flag_eof: False\n    pid: 1091082\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x70b0545553c0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 15:11:51,350 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Cleaned up temp_dir: /tmp/tmp_bspygzh\n"
+}

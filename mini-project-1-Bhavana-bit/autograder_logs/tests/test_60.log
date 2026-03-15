@@ -1,0 +1,708 @@
+{
+    "testcase": {
+        "section": "B.3",
+        "description": "Tests the 15-command history limit and ensures sequential duplicate commands are not logged.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "hop 1",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 2",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 3",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 4",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 5",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 6",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 7",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 8",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 9",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 10",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 11",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 12",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 13",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 14",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 15",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 15",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 16",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "hop 17",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "log",
+                "sequential_outputs": [
+                    {
+                        "text": "hop 3",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 4",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 5",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 6",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 7",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 8",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 9",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 10",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 11",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 12",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 13",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 14",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 15",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 16",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop 17",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:24:59.982299+05:30",
+            "type": "output",
+            "details": "[16:54:59] "
+        },
+        {
+            "time": "2025-11-19T22:24:59.982553+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:24:59.982669+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 1', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.034015+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.034266+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.034324+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.034396+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 2', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.085633+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.086043+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.086126+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.086226+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 3', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.137348+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.137647+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.137704+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.137784+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 4', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.188953+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.189289+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.189367+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.189488+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 5', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.272854+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.273305+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.273420+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.273574+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 6', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.325083+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.325490+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.325612+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.325761+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 7', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.376978+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.377198+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.377247+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.377343+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 8', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.428481+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.428818+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.428895+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.428989+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 9', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.480294+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.480630+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.480713+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.480817+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 10', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.532138+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.532380+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.532438+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.532538+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 11', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.583923+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.584218+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.584271+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.584343+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 12', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.635705+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.635993+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.636045+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.636121+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 13', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.687427+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.687713+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.687772+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.687846+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 14', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.738907+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.739197+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.739263+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.739342+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 15', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.790794+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.791263+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.791428+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.791673+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 15', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.843177+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.843723+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.843916+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.844122+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 16', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.895599+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.896127+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.896325+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.896548+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop 17', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:00.948242+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-19T22:25:00.948763+05:30",
+            "type": "output",
+            "details": "[16:55:00] "
+        },
+        {
+            "time": "2025-11-19T22:25:00.948931+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:00.949299+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='log', sequential_outputs=[Line(text='hop 3', is_re=False, negative_match=False), Line(text='hop 4', is_re=False, negative_match=False), Line(text='hop 5', is_re=False, negative_match=False), Line(text='hop 6', is_re=False, negative_match=False), Line(text='hop 7', is_re=False, negative_match=False), Line(text='hop 8', is_re=False, negative_match=False), Line(text='hop 9', is_re=False, negative_match=False), Line(text='hop 10', is_re=False, negative_match=False), Line(text='hop 11', is_re=False, negative_match=False), Line(text='hop 12', is_re=False, negative_match=False), Line(text='hop 13', is_re=False, negative_match=False), Line(text='hop 14', is_re=False, negative_match=False), Line(text='hop 15', is_re=False, negative_match=False), Line(text='hop 16', is_re=False, negative_match=False), Line(text='hop 17', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:01.001400+05:30",
+            "type": "output",
+            "details": "Command History:"
+        },
+        {
+            "time": "2025-11-19T22:25:01.002003+05:30",
+            "type": "output",
+            "details": "1: hop 4"
+        },
+        {
+            "time": "2025-11-19T22:25:01.002240+05:30",
+            "type": "output",
+            "details": "2: hop 5"
+        },
+        {
+            "time": "2025-11-19T22:25:01.002422+05:30",
+            "type": "output",
+            "details": "3: hop 6"
+        },
+        {
+            "time": "2025-11-19T22:25:01.002626+05:30",
+            "type": "output",
+            "details": "4: hop 7"
+        },
+        {
+            "time": "2025-11-19T22:25:01.002791+05:30",
+            "type": "output",
+            "details": "5: hop 8"
+        },
+        {
+            "time": "2025-11-19T22:25:01.002947+05:30",
+            "type": "output",
+            "details": "6: hop 9"
+        },
+        {
+            "time": "2025-11-19T22:25:01.003129+05:30",
+            "type": "output",
+            "details": "7: hop 10"
+        },
+        {
+            "time": "2025-11-19T22:25:01.003303+05:30",
+            "type": "output",
+            "details": "8: hop 11"
+        },
+        {
+            "time": "2025-11-19T22:25:01.003515+05:30",
+            "type": "output",
+            "details": "9: hop 12"
+        },
+        {
+            "time": "2025-11-19T22:25:01.003696+05:30",
+            "type": "output",
+            "details": "10: hop 13"
+        },
+        {
+            "time": "2025-11-19T22:25:01.003859+05:30",
+            "type": "output",
+            "details": "11: hop 14"
+        },
+        {
+            "time": "2025-11-19T22:25:01.004021+05:30",
+            "type": "output",
+            "details": "12: hop 15"
+        },
+        {
+            "time": "2025-11-19T22:25:01.004178+05:30",
+            "type": "output",
+            "details": "13: hop 16"
+        },
+        {
+            "time": "2025-11-19T22:25:01.004331+05:30",
+            "type": "output",
+            "details": "14: hop 17"
+        },
+        {
+            "time": "2025-11-19T22:25:01.004516+05:30",
+            "type": "output",
+            "details": "15: log"
+        },
+        {
+            "time": "2025-11-19T22:25:01.004710+05:30",
+            "type": "output",
+            "details": "[16:55:01] "
+        },
+        {
+            "time": "2025-11-19T22:25:01.004846+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:54:59] <unknown@osntesting:~> hop 1\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 2\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 3\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 4\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 5\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 6\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 7\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 8\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 9\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 10\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 11\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 12\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 13\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 14\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 15\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 15\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 16\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> hop 17\nNo such directory!\r\n[16:55:00] <unknown@osntesting:~> log\nCommand History:\r\n1: hop 4\r\n2: hop 5\r\n3: hop 6\r\n4: hop 7\r\n5: hop 8\r\n6: hop 9\r\n7: hop 10\r\n8: hop 11\r\n9: hop 12\r\n10: hop 13\r\n11: hop 14\r\n12: hop 15\r\n13: hop 16\r\n14: hop 17\r\n15: log\r\n[16:55:01] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:24:58,801 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f014e68770>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_9c11f396c114475c8cb01f4d383b9803', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmphgvts9xn:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1259743\n    child_fd: 120\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e28c40>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:24:59,982 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:59.982299+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:54:59] \"\n    }\n2025-11-19 22:24:59,982 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:59.982553+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:24:59,982 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:59.982669+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 1', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,034 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.034015+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,034 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.034266+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,034 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.034324+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,034 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.034396+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 2', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,085 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.085633+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,086 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.086043+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,086 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.086126+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,086 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.086226+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 3', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,137 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.137348+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,137 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.137647+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,137 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.137704+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,137 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.137784+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 4', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,189 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.188953+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,189 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.189289+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,189 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.189367+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,189 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.189488+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 5', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,273 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.272854+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,273 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.273305+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,273 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.273420+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,273 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.273574+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 6', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,325 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.325083+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,325 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.325490+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,325 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.325612+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,325 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.325761+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 7', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,377 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.376978+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,377 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.377198+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,377 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.377247+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,377 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.377343+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 8', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,428 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.428481+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,428 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.428818+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,428 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.428895+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,429 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.428989+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 9', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,480 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.480294+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,480 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.480630+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,480 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.480713+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,480 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.480817+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 10', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,532 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.532138+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,532 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.532380+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,532 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.532438+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,532 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.532538+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 11', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,584 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.583923+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,584 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.584218+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,584 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.584271+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,584 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.584343+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 12', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,635 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.635705+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,636 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.635993+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,636 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.636045+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,636 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.636121+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 13', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,687 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.687427+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,687 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.687713+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,687 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.687772+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,687 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.687846+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 14', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,739 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.738907+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,739 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.739197+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,739 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.739263+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,739 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.739342+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 15', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,790 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.790794+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,791 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.791263+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,791 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.791428+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,791 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.791673+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 15', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,843 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.843177+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,843 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.843723+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,843 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.843916+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,844 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.844122+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 16', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,895 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.895599+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,896 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.896127+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,896 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.896325+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,896 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.896548+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop 17', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:00,948 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.948242+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-19 22:25:00,948 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.948763+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:00] \"\n    }\n2025-11-19 22:25:00,948 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.948931+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:00,949 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:00.949299+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='log', sequential_outputs=[Line(text='hop 3', is_re=False, negative_match=False), Line(text='hop 4', is_re=False, negative_match=False), Line(text='hop 5', is_re=False, negative_match=False), Line(text='hop 6', is_re=False, negative_match=False), Line(text='hop 7', is_re=False, negative_match=False), Line(text='hop 8', is_re=False, negative_match=False), Line(text='hop 9', is_re=False, negative_match=False), Line(text='hop 10', is_re=False, negative_match=False), Line(text='hop 11', is_re=False, negative_match=False), Line(text='hop 12', is_re=False, negative_match=False), Line(text='hop 13', is_re=False, negative_match=False), Line(text='hop 14', is_re=False, negative_match=False), Line(text='hop 15', is_re=False, negative_match=False), Line(text='hop 16', is_re=False, negative_match=False), Line(text='hop 17', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:25:01,001 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.001400+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Command History:\"\n    }\n2025-11-19 22:25:01,002 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.002003+05:30\",\n        \"type\": \"output\",\n        \"details\": \"1: hop 4\"\n    }\n2025-11-19 22:25:01,002 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.002240+05:30\",\n        \"type\": \"output\",\n        \"details\": \"2: hop 5\"\n    }\n2025-11-19 22:25:01,002 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.002422+05:30\",\n        \"type\": \"output\",\n        \"details\": \"3: hop 6\"\n    }\n2025-11-19 22:25:01,002 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.002626+05:30\",\n        \"type\": \"output\",\n        \"details\": \"4: hop 7\"\n    }\n2025-11-19 22:25:01,002 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.002791+05:30\",\n        \"type\": \"output\",\n        \"details\": \"5: hop 8\"\n    }\n2025-11-19 22:25:01,003 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.002947+05:30\",\n        \"type\": \"output\",\n        \"details\": \"6: hop 9\"\n    }\n2025-11-19 22:25:01,003 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.003129+05:30\",\n        \"type\": \"output\",\n        \"details\": \"7: hop 10\"\n    }\n2025-11-19 22:25:01,003 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.003303+05:30\",\n        \"type\": \"output\",\n        \"details\": \"8: hop 11\"\n    }\n2025-11-19 22:25:01,003 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.003515+05:30\",\n        \"type\": \"output\",\n        \"details\": \"9: hop 12\"\n    }\n2025-11-19 22:25:01,003 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.003696+05:30\",\n        \"type\": \"output\",\n        \"details\": \"10: hop 13\"\n    }\n2025-11-19 22:25:01,003 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.003859+05:30\",\n        \"type\": \"output\",\n        \"details\": \"11: hop 14\"\n    }\n2025-11-19 22:25:01,004 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.004021+05:30\",\n        \"type\": \"output\",\n        \"details\": \"12: hop 15\"\n    }\n2025-11-19 22:25:01,004 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.004178+05:30\",\n        \"type\": \"output\",\n        \"details\": \"13: hop 16\"\n    }\n2025-11-19 22:25:01,004 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.004331+05:30\",\n        \"type\": \"output\",\n        \"details\": \"14: hop 17\"\n    }\n2025-11-19 22:25:01,004 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.004516+05:30\",\n        \"type\": \"output\",\n        \"details\": \"15: log\"\n    }\n2025-11-19 22:25:01,004 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.004710+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:01] \"\n    }\n2025-11-19 22:25:01,004 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:01.004846+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:01,546 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - WARNING - Failed to remove container tester_9c11f396c114475c8cb01f4d383b9803: 409 Client Error for http+docker://localhost/v1.51/containers/80dc7cf932456904ff78e69fc4988153d5c0a67951a1a4052f21bf7c1031467e?v=False&link=False&force=True: Conflict (\"removal of container 80dc7cf932456904ff78e69fc4988153d5c0a67951a1a4052f21bf7c1031467e is already in progress\")\n2025-11-19 22:25:01,546 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f014e68770>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_9c11f396c114475c8cb01f4d383b9803', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmphgvts9xn:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:55:01] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1259743\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e28c40>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:01,546 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmphgvts9xn\n"
+}

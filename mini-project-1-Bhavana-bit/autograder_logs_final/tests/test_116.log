@@ -1,0 +1,95 @@
+{
+    "testcase": {
+        "section": "E.2",
+        "description": "Tests ping command with missing arguments.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "ping",
+                "sequential_outputs": [
+                    {
+                        "text": "Invalid syntax!",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "ping 12345",
+                "sequential_outputs": [
+                    {
+                        "text": "Invalid syntax!",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-30T15:11:45.954957+05:30",
+            "type": "output",
+            "details": "[09:41:45] "
+        },
+        {
+            "time": "2025-11-30T15:11:45.955195+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:45.955326+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='ping', sequential_outputs=[Line(text='Invalid syntax!', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:46.007015+05:30",
+            "type": "output",
+            "details": "Usage: ping PID SIGNAL"
+        },
+        {
+            "time": "2025-11-30T15:11:46.007431+05:30",
+            "type": "output",
+            "details": "[09:41:46] "
+        },
+        {
+            "time": "2025-11-30T15:11:46.007610+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:46.007824+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='ping 12345', sequential_outputs=[Line(text='Invalid syntax!', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:46.059010+05:30",
+            "type": "output",
+            "details": "Usage: ping PID SIGNAL"
+        },
+        {
+            "time": "2025-11-30T15:11:46.059268+05:30",
+            "type": "output",
+            "details": "[09:41:46] "
+        },
+        {
+            "time": "2025-11-30T15:11:46.059333+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[09:41:45] <unknown@osntesting:~> ping\nUsage: ping PID SIGNAL\r\n[09:41:46] <unknown@osntesting:~> ping 12345\nUsage: ping PID SIGNAL\r\n[09:41:46] <unknown@osntesting:~> ",
+    "py_log": "2025-11-30 15:11:44,912 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x70b05452f380>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_ced20919fce34a49b4f16db38a79ea28', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp90e17ha7:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1086694\n    child_fd: 94\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x70b0545553c0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 15:11:45,955 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:45.954957+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:45] \"\n    }\n2025-11-30 15:11:45,955 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:45.955195+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:45,955 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:45.955326+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='ping', sequential_outputs=[Line(text='Invalid syntax!', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:46,007 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:46.007015+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Usage: ping PID SIGNAL\"\n    }\n2025-11-30 15:11:46,007 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:46.007431+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:46] \"\n    }\n2025-11-30 15:11:46,007 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:46.007610+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:46,007 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:46.007824+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='ping 12345', sequential_outputs=[Line(text='Invalid syntax!', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:46,059 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:46.059010+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Usage: ping PID SIGNAL\"\n    }\n2025-11-30 15:11:46,059 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:46.059268+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:46] \"\n    }\n2025-11-30 15:11:46,059 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:46.059333+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:46,465 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x70b05452f380>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_ced20919fce34a49b4f16db38a79ea28', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp90e17ha7:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[09:41:46] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: 129\n    flag_eof: False\n    pid: 1086694\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x70b0545553c0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 15:11:46,465 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Cleaned up temp_dir: /tmp/tmp90e17ha7\n"
+}

@@ -1,0 +1,191 @@
+{
+    "testcase": {
+        "section": "E.1",
+        "description": "Checks if activities correctly lists multiple running background processes in lexicographical order.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "sleep 2 &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[1\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "sh -c \"sleep 2\" &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[2\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "cat &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[3\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "activities",
+                "sequential_outputs": [
+                    {
+                        "text": "\\\\[\\\\d+\\\\] : cat - Running",
+                        "is_re": true,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "\\\\[\\\\d+\\\\] : sh - Running",
+                        "is_re": true,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "\\\\[\\\\d+\\\\] : sleep - Running",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:26:19.886408+05:30",
+            "type": "output",
+            "details": "[16:56:19] "
+        },
+        {
+            "time": "2025-11-19T22:26:19.886733+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:26:19.886922+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='sleep 2 &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[1\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:26:19.938482+05:30",
+            "type": "output",
+            "details": "[1] 28"
+        },
+        {
+            "time": "2025-11-19T22:26:19.938749+05:30",
+            "type": "output",
+            "details": "[16:56:19] "
+        },
+        {
+            "time": "2025-11-19T22:26:19.938809+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:26:19.938907+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='sh -c \"sleep 2\" &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[2\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:26:19.990655+05:30",
+            "type": "output",
+            "details": "[2] 29"
+        },
+        {
+            "time": "2025-11-19T22:26:19.990907+05:30",
+            "type": "output",
+            "details": "[16:56:19] "
+        },
+        {
+            "time": "2025-11-19T22:26:19.990961+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:26:19.991048+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='cat &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[3\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:26:20.041628+05:30",
+            "type": "output",
+            "details": "2\": 1: Syntax error: Unterminated quoted string"
+        },
+        {
+            "time": "2025-11-19T22:26:20.043103+05:30",
+            "type": "output",
+            "details": "[3] 30"
+        },
+        {
+            "time": "2025-11-19T22:26:20.043325+05:30",
+            "type": "output",
+            "details": "[16:56:20] "
+        },
+        {
+            "time": "2025-11-19T22:26:20.043407+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:26:20.043532+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='activities', sequential_outputs=[Line(text='\\\\\\\\[\\\\\\\\d+\\\\\\\\] : cat - Running', is_re=True, negative_match=False), Line(text='\\\\\\\\[\\\\\\\\d+\\\\\\\\] : sh - Running', is_re=True, negative_match=False), Line(text='\\\\\\\\[\\\\\\\\d+\\\\\\\\] : sleep - Running', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:26:20.095008+05:30",
+            "type": "output",
+            "details": "Job ID\tPID\tState\t\tCommand"
+        },
+        {
+            "time": "2025-11-19T22:26:20.095249+05:30",
+            "type": "output",
+            "details": "[3]\t30\tRunning\t\tcat"
+        },
+        {
+            "time": "2025-11-19T22:26:20.095320+05:30",
+            "type": "output",
+            "details": "[2]\t29\tRunning\t\tsh"
+        },
+        {
+            "time": "2025-11-19T22:26:20.095371+05:30",
+            "type": "output",
+            "details": "[1]\t28\tRunning\t\tsleep"
+        },
+        {
+            "time": "2025-11-19T22:26:20.095428+05:30",
+            "type": "output",
+            "details": "[16:56:20] "
+        },
+        {
+            "time": "2025-11-19T22:26:20.095479+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:56:19] <unknown@osntesting:~> sleep 2 &\n[1] 28\r\n[16:56:19] <unknown@osntesting:~> sh -c \"sleep 2\" &\n[2] 29\r\n[16:56:19] <unknown@osntesting:~> cat &\n2\": 1: Syntax error: Unterminated quoted string\r\n[3] 30\r\n[16:56:20] <unknown@osntesting:~> activities\nJob ID\tPID\tState\t\tCommand\r\n[3]\t30\tRunning\t\tcat\r\n[2]\t29\tRunning\t\tsh\r\n[1]\t28\tRunning\t\tsleep\r\n[16:56:20] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:26:19,372 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f014ed6660>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_0241b6f9f3c044839fae8b61e31faa61', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp14o66pdc:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1498127\n    child_fd: 132\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017193d00>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:26:19,886 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:19.886408+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:19] \"\n    }\n2025-11-19 22:26:19,886 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:19.886733+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:19,886 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:19.886922+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='sleep 2 &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[1\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:26:19,938 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:19.938482+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1] 28\"\n    }\n2025-11-19 22:26:19,938 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:19.938749+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:19] \"\n    }\n2025-11-19 22:26:19,938 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:19.938809+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:19,938 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:19.938907+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='sh -c \\\"sleep 2\\\" &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[2\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:26:19,990 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:19.990655+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[2] 29\"\n    }\n2025-11-19 22:26:19,990 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:19.990907+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:19] \"\n    }\n2025-11-19 22:26:19,990 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:19.990961+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:19,991 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:19.991048+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='cat &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[3\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:26:20,041 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:20.041628+05:30\",\n        \"type\": \"output\",\n        \"details\": \"2\\\": 1: Syntax error: Unterminated quoted string\"\n    }\n2025-11-19 22:26:20,043 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:20.043103+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[3] 30\"\n    }\n2025-11-19 22:26:20,043 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:20.043325+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:20] \"\n    }\n2025-11-19 22:26:20,043 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:20.043407+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:20,043 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:20.043532+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='activities', sequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[\\\\\\\\\\\\\\\\d+\\\\\\\\\\\\\\\\] : cat - Running', is_re=True, negative_match=False), Line(text='\\\\\\\\\\\\\\\\[\\\\\\\\\\\\\\\\d+\\\\\\\\\\\\\\\\] : sh - Running', is_re=True, negative_match=False), Line(text='\\\\\\\\\\\\\\\\[\\\\\\\\\\\\\\\\d+\\\\\\\\\\\\\\\\] : sleep - Running', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:26:20,095 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:20.095008+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Job ID\\tPID\\tState\\t\\tCommand\"\n    }\n2025-11-19 22:26:20,095 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:20.095249+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[3]\\t30\\tRunning\\t\\tcat\"\n    }\n2025-11-19 22:26:20,095 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:20.095320+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[2]\\t29\\tRunning\\t\\tsh\"\n    }\n2025-11-19 22:26:20,095 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:20.095371+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1]\\t28\\tRunning\\t\\tsleep\"\n    }\n2025-11-19 22:26:20,095 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:20.095428+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:20] \"\n    }\n2025-11-19 22:26:20,095 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:20.095479+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:20,642 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - WARNING - Failed to remove container tester_0241b6f9f3c044839fae8b61e31faa61: 409 Client Error for http+docker://localhost/v1.51/containers/d8827223fc4eb17cb7ffd498437822d34263d9fa6150b7946623656d0e88324b?v=False&link=False&force=True: Conflict (\"removal of container d8827223fc4eb17cb7ffd498437822d34263d9fa6150b7946623656d0e88324b is already in progress\")\n2025-11-19 22:26:20,642 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f014ed6660>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_0241b6f9f3c044839fae8b61e31faa61', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp14o66pdc:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:56:20] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1498127\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017193d00>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:26:20,642 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmp14o66pdc\n"
+}

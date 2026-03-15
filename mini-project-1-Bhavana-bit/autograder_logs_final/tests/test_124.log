@@ -1,0 +1,130 @@
+{
+    "testcase": {
+        "section": "E.4",
+        "description": "Tests that 'fg' without a job number brings the most recently created job to the foreground.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "sleep 4 &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[1\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "sleep 1 &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[2\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "fg",
+                "sequential_outputs": [
+                    {
+                        "text": "sleep 1",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 3.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-30T15:11:57.209608+05:30",
+            "type": "output",
+            "details": "[09:41:57] "
+        },
+        {
+            "time": "2025-11-30T15:11:57.209787+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:57.209878+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 4 &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[1\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:57.261317+05:30",
+            "type": "output",
+            "details": "[1] 29"
+        },
+        {
+            "time": "2025-11-30T15:11:57.261528+05:30",
+            "type": "output",
+            "details": "[09:41:57] "
+        },
+        {
+            "time": "2025-11-30T15:11:57.261604+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:57.261710+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 1 &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[2\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:57.313354+05:30",
+            "type": "output",
+            "details": "[2] 30"
+        },
+        {
+            "time": "2025-11-30T15:11:57.313800+05:30",
+            "type": "output",
+            "details": "[09:41:57] "
+        },
+        {
+            "time": "2025-11-30T15:11:57.313971+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T15:11:57.314176+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='fg', sequential_outputs=[Line(text='sleep 1', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T15:11:57.365160+05:30",
+            "type": "output",
+            "details": "sleep"
+        },
+        {
+            "time": "2025-11-30T15:11:58.315039+05:30",
+            "type": "output",
+            "details": "[09:41:58] "
+        },
+        {
+            "time": "2025-11-30T15:11:58.315227+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[09:41:57] <unknown@osntesting:~> sleep 4 &\n[1] 29\r\n[09:41:57] <unknown@osntesting:~> sleep 1 &\n[2] 30\r\n[09:41:57] <unknown@osntesting:~> fg\nsleep\r\n[09:41:58] <unknown@osntesting:~> ",
+    "py_log": "2025-11-30 15:11:56,669 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x70b0542ce9f0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_6cdb505dbc894d2887158a043fdc6ad7', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpjjezbpcd:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1095704\n    child_fd: 144\n    closed: False\n    timeout: 3.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x70b0545553c0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 15:11:57,209 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:57.209608+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:57] \"\n    }\n2025-11-30 15:11:57,209 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:57.209787+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:57,209 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:57.209878+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 4 &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[1\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:57,261 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:57.261317+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1] 29\"\n    }\n2025-11-30 15:11:57,261 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:57.261528+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:57] \"\n    }\n2025-11-30 15:11:57,261 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:57.261604+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:57,261 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:57.261710+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='sleep 1 &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[2\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:57,313 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:57.313354+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[2] 30\"\n    }\n2025-11-30 15:11:57,313 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:57.313800+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:57] \"\n    }\n2025-11-30 15:11:57,314 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:57.313971+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:57,314 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:57.314176+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='fg', sequential_outputs=[Line(text='sleep 1', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 15:11:57,365 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:57.365160+05:30\",\n        \"type\": \"output\",\n        \"details\": \"sleep\"\n    }\n2025-11-30 15:11:58,315 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:58.315039+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[09:41:58] \"\n    }\n2025-11-30 15:11:58,315 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T15:11:58.315227+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-30 15:11:58,892 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - WARNING - Failed to remove container tester_6cdb505dbc894d2887158a043fdc6ad7: 409 Client Error for http+docker://localhost/v1.51/containers/9b5fa93ba0a54d859577b65fbe5ac593107de47b91e1a1fcb66a32a8c6dac586?v=False&link=False&force=True: Conflict (\"removal of container 9b5fa93ba0a54d859577b65fbe5ac593107de47b91e1a1fcb66a32a8c6dac586 is already in progress\")\n2025-11-30 15:11:58,892 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x70b0542ce9f0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_6cdb505dbc894d2887158a043fdc6ad7', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpjjezbpcd:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[09:41:58] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1095704\n    child_fd: -1\n    closed: True\n    timeout: 3.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x70b0545553c0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 15:11:58,892 - tester.cfab62dc-ee9e-4ed7-85d0-0c64029c0234 - INFO - Cleaned up temp_dir: /tmp/tmpjjezbpcd\n"
+}

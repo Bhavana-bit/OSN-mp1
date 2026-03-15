@@ -1,0 +1,14 @@
+{
+    "test_id": "test_73",
+    "section": "C.2",
+    "description": "Tests that for multiple input redirections, only the last one takes effect.",
+    "passed": false,
+    "failure": {
+        "step_index": 0,
+        "command": "cat < test/file4.txt < test/file5.txt",
+        "reason": "Insufficient output lines for sequential check.",
+        "expected": 5,
+        "actual": 6
+    },
+    "score": 0.0
+}

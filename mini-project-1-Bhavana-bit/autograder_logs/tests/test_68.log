@@ -1,0 +1,59 @@
+{
+    "testcase": {
+        "section": "C.1",
+        "description": "Tests the execution of a simple, valid command (ls). The shell should not output 'Command not found!'.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "ls",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "Command not found!",
+                        "is_re": false,
+                        "negative_match": true
+                    }
+                ],
+                "ignore_output": true,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:25:14.831052+05:30",
+            "type": "output",
+            "details": "[16:55:14] "
+        },
+        {
+            "time": "2025-11-19T22:25:14.831290+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:14.831422+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='ls', sequential_outputs=[], nonsequential_outputs=[Line(text='Command not found!', is_re=False, negative_match=True)], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:14.885539+05:30",
+            "type": "output",
+            "details": "log.txt  shell.out  test"
+        },
+        {
+            "time": "2025-11-19T22:25:14.885839+05:30",
+            "type": "output",
+            "details": "[16:55:14] "
+        },
+        {
+            "time": "2025-11-19T22:25:14.885912+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:55:14] <unknown@osntesting:~> ls\nlog.txt  shell.out  test\r\n[16:55:14] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:25:14,230 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f014e8ce30>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_eae03321529d4177971f96cfeea8e5ba', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpu8yup6if:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1304117\n    child_fd: 134\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e28640>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:14,831 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:14.831052+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:14] \"\n    }\n2025-11-19 22:25:14,831 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:14.831290+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:14,831 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:14.831422+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='ls', sequential_outputs=[], nonsequential_outputs=[Line(text='Command not found!', is_re=False, negative_match=True)], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:14,885 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:14.885539+05:30\",\n        \"type\": \"output\",\n        \"details\": \"log.txt  shell.out  test\"\n    }\n2025-11-19 22:25:14,885 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:14.885839+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:14] \"\n    }\n2025-11-19 22:25:14,885 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:14.885912+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:15,547 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - WARNING - Failed to remove container tester_eae03321529d4177971f96cfeea8e5ba: 409 Client Error for http+docker://localhost/v1.51/containers/cba4e8885e2893a32317056a5179cd33b867b02f168478f194c27abe842b26e0?v=False&link=False&force=True: Conflict (\"removal of container cba4e8885e2893a32317056a5179cd33b867b02f168478f194c27abe842b26e0 is already in progress\")\n2025-11-19 22:25:15,548 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f014e8ce30>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_eae03321529d4177971f96cfeea8e5ba', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpu8yup6if:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:55:14] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1304117\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e28640>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:15,548 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmpu8yup6if\n"
+}

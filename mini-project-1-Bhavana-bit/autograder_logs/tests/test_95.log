@@ -1,0 +1,123 @@
+{
+    "testcase": {
+        "section": "C.4",
+        "description": "Tests that output redirection on a non-final command in a pipeline correctly redirects that command's output, starving the next command in the pipe.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "ls test > ls_out.txt | wc -l",
+                "sequential_outputs": [
+                    {
+                        "text": "\\\\s*0\\\\s*",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "cat ls_out.txt",
+                "sequential_outputs": [
+                    {
+                        "text": "file4.txt",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "file5.txt",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "folder1",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "folder2",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "folder3",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": true
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:25:54.683280+05:30",
+            "type": "output",
+            "details": "[16:55:54] "
+        },
+        {
+            "time": "2025-11-19T22:25:54.683549+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:54.683668+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='ls test > ls_out.txt | wc -l', sequential_outputs=[Line(text='\\\\\\\\s*0\\\\\\\\s*', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:54.736194+05:30",
+            "type": "output",
+            "details": "ls: cannot access '>': No such file or directory"
+        },
+        {
+            "time": "2025-11-19T22:25:54.736479+05:30",
+            "type": "output",
+            "details": "ls: cannot access 'ls_out.txt': No such file or directory"
+        },
+        {
+            "time": "2025-11-19T22:25:54.736764+05:30",
+            "type": "output",
+            "details": "6"
+        },
+        {
+            "time": "2025-11-19T22:25:54.736847+05:30",
+            "type": "output",
+            "details": "[16:55:54] "
+        },
+        {
+            "time": "2025-11-19T22:25:54.736897+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:54.737017+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='cat ls_out.txt', sequential_outputs=[Line(text='file4.txt', is_re=False, negative_match=False), Line(text='file5.txt', is_re=False, negative_match=False), Line(text='folder1', is_re=False, negative_match=False), Line(text='folder2', is_re=False, negative_match=False), Line(text='folder3', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:54.789166+05:30",
+            "type": "output",
+            "details": "cat: ls_out.txt: No such file or directory"
+        },
+        {
+            "time": "2025-11-19T22:25:54.789682+05:30",
+            "type": "output",
+            "details": "[16:55:54] "
+        },
+        {
+            "time": "2025-11-19T22:25:54.789779+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:55:54] <unknown@osntesting:~> ls test > ls_out.txt | wc -l\nls: cannot access '>': No such file or directory\r\nls: cannot access 'ls_out.txt': No such file or directory\r\n6\r\n[16:55:54] <unknown@osntesting:~> cat ls_out.txt\ncat: ls_out.txt: No such file or directory\r\n[16:55:54] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:25:54,296 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f017ba65d0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_e707ad7b126e4f6f946101f339e3327a', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp9ovco_0m:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1425743\n    child_fd: 133\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017192800>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:54,683 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:54.683280+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:54] \"\n    }\n2025-11-19 22:25:54,683 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:54.683549+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:54,683 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:54.683668+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='ls test > ls_out.txt | wc -l', sequential_outputs=[Line(text='\\\\\\\\\\\\\\\\s*0\\\\\\\\\\\\\\\\s*', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:25:54,736 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:54.736194+05:30\",\n        \"type\": \"output\",\n        \"details\": \"ls: cannot access '>': No such file or directory\"\n    }\n2025-11-19 22:25:54,736 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:54.736479+05:30\",\n        \"type\": \"output\",\n        \"details\": \"ls: cannot access 'ls_out.txt': No such file or directory\"\n    }\n2025-11-19 22:25:54,736 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:54.736764+05:30\",\n        \"type\": \"output\",\n        \"details\": \"6\"\n    }\n2025-11-19 22:25:54,736 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:54.736847+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:54] \"\n    }\n2025-11-19 22:25:54,736 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:54.736897+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:54,737 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:54.737017+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='cat ls_out.txt', sequential_outputs=[Line(text='file4.txt', is_re=False, negative_match=False), Line(text='file5.txt', is_re=False, negative_match=False), Line(text='folder1', is_re=False, negative_match=False), Line(text='folder2', is_re=False, negative_match=False), Line(text='folder3', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:25:54,789 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:54.789166+05:30\",\n        \"type\": \"output\",\n        \"details\": \"cat: ls_out.txt: No such file or directory\"\n    }\n2025-11-19 22:25:54,789 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:54.789682+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:54] \"\n    }\n2025-11-19 22:25:54,789 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:54.789779+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:55,338 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - WARNING - Failed to remove container tester_e707ad7b126e4f6f946101f339e3327a: 409 Client Error for http+docker://localhost/v1.51/containers/4ff5ac79ddfe7e09c5312f2dabf48e779271d8a176a38c4f4bbd005f0105b3c1?v=False&link=False&force=True: Conflict (\"removal of container 4ff5ac79ddfe7e09c5312f2dabf48e779271d8a176a38c4f4bbd005f0105b3c1 is already in progress\")\n2025-11-19 22:25:55,338 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f017ba65d0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_e707ad7b126e4f6f946101f339e3327a', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp9ovco_0m:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:55:54] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1425743\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017192800>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:55,339 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmp9ovco_0m\n"
+}

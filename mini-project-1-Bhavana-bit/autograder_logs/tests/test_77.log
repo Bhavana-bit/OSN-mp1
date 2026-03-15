@@ -1,0 +1,59 @@
+{
+    "testcase": {
+        "section": "C.2",
+        "description": "Tests that redirecting input from a directory results in an error.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "cat < test/folder1",
+                "sequential_outputs": [
+                    {
+                        "text": ".*Is a directory.*",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": true
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:25:27.464900+05:30",
+            "type": "output",
+            "details": "[16:55:27] "
+        },
+        {
+            "time": "2025-11-19T22:25:27.465216+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:27.465405+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='cat < test/folder1', sequential_outputs=[Line(text='.*Is a directory.*', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:27.524271+05:30",
+            "type": "output",
+            "details": "cat: -: Is a directory"
+        },
+        {
+            "time": "2025-11-19T22:25:27.524771+05:30",
+            "type": "output",
+            "details": "[16:55:27] "
+        },
+        {
+            "time": "2025-11-19T22:25:27.524846+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:55:27] <unknown@osntesting:~> cat < test/folder1\ncat: -: Is a directory\r\n[16:55:27] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:25:26,567 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f014e37dd0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_64b66c62083a4034841b523601919da1', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpxdiah7jv:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1341535\n    child_fd: 132\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017191000>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:27,465 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:27.464900+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:27] \"\n    }\n2025-11-19 22:25:27,465 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:27.465216+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:27,465 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:27.465405+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='cat < test/folder1', sequential_outputs=[Line(text='.*Is a directory.*', is_re=True, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:25:27,524 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:27.524271+05:30\",\n        \"type\": \"output\",\n        \"details\": \"cat: -: Is a directory\"\n    }\n2025-11-19 22:25:27,524 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:27.524771+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:27] \"\n    }\n2025-11-19 22:25:27,524 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:27.524846+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:28,357 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - WARNING - Failed to remove container tester_64b66c62083a4034841b523601919da1: 409 Client Error for http+docker://localhost/v1.51/containers/beb581402a55b0298e2cd23158b4f66a5b2a04a6ea5332f744b90d69932dc71a?v=False&link=False&force=True: Conflict (\"removal of container beb581402a55b0298e2cd23158b4f66a5b2a04a6ea5332f744b90d69932dc71a is already in progress\")\n2025-11-19 22:25:28,357 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f014e37dd0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_64b66c62083a4034841b523601919da1', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpxdiah7jv:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:55:27] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1341535\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017191000>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:28,358 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmpxdiah7jv\n"
+}

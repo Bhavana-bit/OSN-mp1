@@ -1,0 +1,79 @@
+{
+    "testcase": {
+        "section": "D.1",
+        "description": "Tests a long sequence of simple commands to ensure they are all executed in the correct order.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "echo 1 ; echo 2 ; echo 3 ; echo 4 ; echo 5",
+                "sequential_outputs": [
+                    {
+                        "text": "1",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "2",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "3",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "4",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "5",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:26:01.768806+05:30",
+            "type": "output",
+            "details": "[16:56:01] "
+        },
+        {
+            "time": "2025-11-19T22:26:01.769047+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:26:01.769178+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='echo 1 ; echo 2 ; echo 3 ; echo 4 ; echo 5', sequential_outputs=[Line(text='1', is_re=False, negative_match=False), Line(text='2', is_re=False, negative_match=False), Line(text='3', is_re=False, negative_match=False), Line(text='4', is_re=False, negative_match=False), Line(text='5', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:26:01.821995+05:30",
+            "type": "output",
+            "details": "1 ; echo 2 ; echo 3 ; echo 4 ; echo 5"
+        },
+        {
+            "time": "2025-11-19T22:26:01.822154+05:30",
+            "type": "output",
+            "details": "[16:56:01] "
+        },
+        {
+            "time": "2025-11-19T22:26:01.822208+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:56:01] <unknown@osntesting:~> echo 1 ; echo 2 ; echo 3 ; echo 4 ; echo 5\n1 ; echo 2 ; echo 3 ; echo 4 ; echo 5\r\n[16:56:01] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:26:01,312 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f014e35370>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_6cfd73fb173a49bfa437a3f1eb7036aa', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpalzh4ccy:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1445137\n    child_fd: 134\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017191f00>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:26:01,768 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:01.768806+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:01] \"\n    }\n2025-11-19 22:26:01,769 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:01.769047+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:01,769 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:01.769178+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='echo 1 ; echo 2 ; echo 3 ; echo 4 ; echo 5', sequential_outputs=[Line(text='1', is_re=False, negative_match=False), Line(text='2', is_re=False, negative_match=False), Line(text='3', is_re=False, negative_match=False), Line(text='4', is_re=False, negative_match=False), Line(text='5', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:26:01,822 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:01.821995+05:30\",\n        \"type\": \"output\",\n        \"details\": \"1 ; echo 2 ; echo 3 ; echo 4 ; echo 5\"\n    }\n2025-11-19 22:26:01,822 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:01.822154+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:56:01] \"\n    }\n2025-11-19 22:26:01,822 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:26:01.822208+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:26:02,327 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f014e35370>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_6cfd73fb173a49bfa437a3f1eb7036aa', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpalzh4ccy:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:56:01] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1445137\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017191f00>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:26:02,327 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmpalzh4ccy\n"
+}

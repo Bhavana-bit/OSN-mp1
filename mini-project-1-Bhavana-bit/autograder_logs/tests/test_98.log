@@ -1,0 +1,84 @@
+{
+    "testcase": {
+        "section": "D.1",
+        "description": "Tests sequential execution where commands involve pipes and I/O redirection.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "ls test | grep file > seq_out.txt ; cat seq_out.txt",
+                "sequential_outputs": [
+                    {
+                        "text": "file4.txt",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "file5.txt",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": true
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:25:58.841574+05:30",
+            "type": "output",
+            "details": "[16:55:58] "
+        },
+        {
+            "time": "2025-11-19T22:25:58.841967+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:58.842081+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='ls test | grep file > seq_out.txt ; cat seq_out.txt', sequential_outputs=[Line(text='file4.txt', is_re=False, negative_match=False), Line(text='file5.txt', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:58.895532+05:30",
+            "type": "output",
+            "details": "grep: >: No such file or directory"
+        },
+        {
+            "time": "2025-11-19T22:25:58.895811+05:30",
+            "type": "output",
+            "details": "grep: seq_out.txt: No such file or directory"
+        },
+        {
+            "time": "2025-11-19T22:25:58.895890+05:30",
+            "type": "output",
+            "details": "grep: ;: No such file or directory"
+        },
+        {
+            "time": "2025-11-19T22:25:58.895943+05:30",
+            "type": "output",
+            "details": "grep: cat: No such file or directory"
+        },
+        {
+            "time": "2025-11-19T22:25:58.895994+05:30",
+            "type": "output",
+            "details": "grep: seq_out.txt: No such file or directory"
+        },
+        {
+            "time": "2025-11-19T22:25:58.896243+05:30",
+            "type": "output",
+            "details": "[16:55:58] "
+        },
+        {
+            "time": "2025-11-19T22:25:58.896287+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:55:58] <unknown@osntesting:~> ls test | grep file > seq_out.txt ; cat seq_out.txt\ngrep: >: No such file or directory\r\ngrep: seq_out.txt: No such file or directory\r\ngrep: ;: No such file or directory\r\ngrep: cat: No such file or directory\r\ngrep: seq_out.txt: No such file or directory\r\n[16:55:58] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:25:58,093 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f017197f50>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_4f9227c6e2fd462594fe926170d81d9e', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpgxbdcnnf:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1436635\n    child_fd: 132\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017191f00>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:58,841 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:58.841574+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:58] \"\n    }\n2025-11-19 22:25:58,841 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:58.841967+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:58,842 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:58.842081+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='ls test | grep file > seq_out.txt ; cat seq_out.txt', sequential_outputs=[Line(text='file4.txt', is_re=False, negative_match=False), Line(text='file5.txt', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:25:58,895 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:58.895532+05:30\",\n        \"type\": \"output\",\n        \"details\": \"grep: >: No such file or directory\"\n    }\n2025-11-19 22:25:58,895 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:58.895811+05:30\",\n        \"type\": \"output\",\n        \"details\": \"grep: seq_out.txt: No such file or directory\"\n    }\n2025-11-19 22:25:58,895 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:58.895890+05:30\",\n        \"type\": \"output\",\n        \"details\": \"grep: ;: No such file or directory\"\n    }\n2025-11-19 22:25:58,895 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:58.895943+05:30\",\n        \"type\": \"output\",\n        \"details\": \"grep: cat: No such file or directory\"\n    }\n2025-11-19 22:25:58,896 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:58.895994+05:30\",\n        \"type\": \"output\",\n        \"details\": \"grep: seq_out.txt: No such file or directory\"\n    }\n2025-11-19 22:25:58,896 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:58.896243+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:58] \"\n    }\n2025-11-19 22:25:58,896 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:58.896287+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:59,301 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f017197f50>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_4f9227c6e2fd462594fe926170d81d9e', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpgxbdcnnf:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:55:58] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: 129\n    flag_eof: False\n    pid: 1436635\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f017191f00>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:59,301 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmpgxbdcnnf\n"
+}

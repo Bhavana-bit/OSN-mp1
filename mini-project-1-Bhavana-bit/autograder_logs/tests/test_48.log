@@ -1,0 +1,213 @@
+{
+    "testcase": {
+        "section": "B.2",
+        "description": "Tests 'reveal -al' to ensure it lists all files and directories, including hidden ones, in a line-by-line and lexicographically sorted format.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "hop test",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": "~/test"
+            },
+            {
+                "expect_exit": false,
+                "cmd": "touch .hidden_file.txt",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "mkdir .hidden_folder",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "reveal -al",
+                "sequential_outputs": [
+                    {
+                        "text": ".",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "..",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": ".hidden_file.txt",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": ".hidden_folder",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "file4.txt",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "file5.txt",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "folder1",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "folder2",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "folder3",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": true
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:24:38.176045+05:30",
+            "type": "output",
+            "details": "[16:54:38] "
+        },
+        {
+            "time": "2025-11-19T22:24:38.176294+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:24:38.176470+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='hop test', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after='~/test')"
+        },
+        {
+            "time": "2025-11-19T22:24:38.227765+05:30",
+            "type": "output",
+            "details": "[16:54:38] "
+        },
+        {
+            "time": "2025-11-19T22:24:38.228024+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~/test> "
+        },
+        {
+            "time": "2025-11-19T22:24:38.228130+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='touch .hidden_file.txt', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:24:38.280418+05:30",
+            "type": "output",
+            "details": "[16:54:38] "
+        },
+        {
+            "time": "2025-11-19T22:24:38.280651+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~/test> "
+        },
+        {
+            "time": "2025-11-19T22:24:38.280740+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='mkdir .hidden_folder', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:24:38.333803+05:30",
+            "type": "output",
+            "details": "[16:54:38] "
+        },
+        {
+            "time": "2025-11-19T22:24:38.334067+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~/test> "
+        },
+        {
+            "time": "2025-11-19T22:24:38.334305+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='reveal -al', sequential_outputs=[Line(text='.', is_re=False, negative_match=False), Line(text='..', is_re=False, negative_match=False), Line(text='.hidden_file.txt', is_re=False, negative_match=False), Line(text='.hidden_folder', is_re=False, negative_match=False), Line(text='file4.txt', is_re=False, negative_match=False), Line(text='file5.txt', is_re=False, negative_match=False), Line(text='folder1', is_re=False, negative_match=False), Line(text='folder2', is_re=False, negative_match=False), Line(text='folder3', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:24:38.396836+05:30",
+            "type": "output",
+            "details": "."
+        },
+        {
+            "time": "2025-11-19T22:24:38.397390+05:30",
+            "type": "output",
+            "details": ".."
+        },
+        {
+            "time": "2025-11-19T22:24:38.397811+05:30",
+            "type": "output",
+            "details": ".hidden_file.txt"
+        },
+        {
+            "time": "2025-11-19T22:24:38.398092+05:30",
+            "type": "output",
+            "details": ".hidden_folder"
+        },
+        {
+            "time": "2025-11-19T22:24:38.398299+05:30",
+            "type": "output",
+            "details": "file4.txt"
+        },
+        {
+            "time": "2025-11-19T22:24:38.398537+05:30",
+            "type": "output",
+            "details": "file5.txt"
+        },
+        {
+            "time": "2025-11-19T22:24:38.398733+05:30",
+            "type": "output",
+            "details": "folder1"
+        },
+        {
+            "time": "2025-11-19T22:24:38.398912+05:30",
+            "type": "output",
+            "details": "folder2"
+        },
+        {
+            "time": "2025-11-19T22:24:38.399156+05:30",
+            "type": "output",
+            "details": "folder3"
+        },
+        {
+            "time": "2025-11-19T22:24:38.399406+05:30",
+            "type": "output",
+            "details": "log.txt"
+        },
+        {
+            "time": "2025-11-19T22:24:38.399736+05:30",
+            "type": "output",
+            "details": "[16:54:38] "
+        },
+        {
+            "time": "2025-11-19T22:24:38.399925+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~/test> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:54:38] <unknown@osntesting:~> hop test\n[16:54:38] <unknown@osntesting:~/test> touch .hidden_file.txt\n[16:54:38] <unknown@osntesting:~/test> mkdir .hidden_folder\n[16:54:38] <unknown@osntesting:~/test> reveal -al\n.\r\n..\r\n.hidden_file.txt\r\n.hidden_folder\r\nfile4.txt\r\nfile5.txt\r\nfolder1\r\nfolder2\r\nfolder3\r\nlog.txt\r\n[16:54:38] <unknown@osntesting:~/test> ",
+    "py_log": "2025-11-19 22:24:37,248 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f014ec3cb0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_92221e8401fe4070953c3b4bbcedfc34', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpcipiiez9:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1199743\n    child_fd: 84\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e2a800>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:24:38,176 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.176045+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:54:38] \"\n    }\n2025-11-19 22:24:38,176 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.176294+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:24:38,176 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.176470+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='hop test', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after='~/test')\"\n    }\n2025-11-19 22:24:38,227 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.227765+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:54:38] \"\n    }\n2025-11-19 22:24:38,228 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.228024+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~/test> \"\n    }\n2025-11-19 22:24:38,228 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.228130+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='touch .hidden_file.txt', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:24:38,280 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.280418+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:54:38] \"\n    }\n2025-11-19 22:24:38,280 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.280651+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~/test> \"\n    }\n2025-11-19 22:24:38,280 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.280740+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='mkdir .hidden_folder', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:24:38,333 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.333803+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:54:38] \"\n    }\n2025-11-19 22:24:38,334 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.334067+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~/test> \"\n    }\n2025-11-19 22:24:38,334 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.334305+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='reveal -al', sequential_outputs=[Line(text='.', is_re=False, negative_match=False), Line(text='..', is_re=False, negative_match=False), Line(text='.hidden_file.txt', is_re=False, negative_match=False), Line(text='.hidden_folder', is_re=False, negative_match=False), Line(text='file4.txt', is_re=False, negative_match=False), Line(text='file5.txt', is_re=False, negative_match=False), Line(text='folder1', is_re=False, negative_match=False), Line(text='folder2', is_re=False, negative_match=False), Line(text='folder3', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:24:38,397 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.396836+05:30\",\n        \"type\": \"output\",\n        \"details\": \".\"\n    }\n2025-11-19 22:24:38,397 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.397390+05:30\",\n        \"type\": \"output\",\n        \"details\": \"..\"\n    }\n2025-11-19 22:24:38,397 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.397811+05:30\",\n        \"type\": \"output\",\n        \"details\": \".hidden_file.txt\"\n    }\n2025-11-19 22:24:38,398 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.398092+05:30\",\n        \"type\": \"output\",\n        \"details\": \".hidden_folder\"\n    }\n2025-11-19 22:24:38,398 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.398299+05:30\",\n        \"type\": \"output\",\n        \"details\": \"file4.txt\"\n    }\n2025-11-19 22:24:38,398 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.398537+05:30\",\n        \"type\": \"output\",\n        \"details\": \"file5.txt\"\n    }\n2025-11-19 22:24:38,398 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.398733+05:30\",\n        \"type\": \"output\",\n        \"details\": \"folder1\"\n    }\n2025-11-19 22:24:38,398 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.398912+05:30\",\n        \"type\": \"output\",\n        \"details\": \"folder2\"\n    }\n2025-11-19 22:24:38,399 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.399156+05:30\",\n        \"type\": \"output\",\n        \"details\": \"folder3\"\n    }\n2025-11-19 22:24:38,399 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.399406+05:30\",\n        \"type\": \"output\",\n        \"details\": \"log.txt\"\n    }\n2025-11-19 22:24:38,399 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.399736+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:54:38] \"\n    }\n2025-11-19 22:24:38,399 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:24:38.399925+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~/test> \"\n    }\n2025-11-19 22:24:38,918 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - WARNING - Failed to remove container tester_92221e8401fe4070953c3b4bbcedfc34: 409 Client Error for http+docker://localhost/v1.51/containers/a9ae707a69d825350b4048d3aeb881de4baca913be3744f10cf49b22dcb3234d?v=False&link=False&force=True: Conflict (\"removal of container a9ae707a69d825350b4048d3aeb881de4baca913be3744f10cf49b22dcb3234d is already in progress\")\n2025-11-19 22:24:38,918 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f014ec3cb0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_92221e8401fe4070953c3b4bbcedfc34', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpcipiiez9:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:54:38] '\n    after: '<unknown@osntesting:~/test> '\n    match: <re.Match object; span=(11, 39), match='<unknown@osntesting:~/test> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1199743\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e2a800>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:24:38,919 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmpcipiiez9\n"
+}

@@ -1,0 +1,14 @@
+{
+    "test_id": "test_46",
+    "section": "B.1",
+    "description": "Tests that `hop -` correctly swaps between the two most recent directories upon repeated use.",
+    "passed": false,
+    "failure": {
+        "step_index": 1,
+        "command": "pwd",
+        "reason": "Incorrect number of output lines for sequential check.",
+        "expected": 1,
+        "actual": 2
+    },
+    "score": 0.0
+}

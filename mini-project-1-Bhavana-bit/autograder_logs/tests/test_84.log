@@ -1,0 +1,82 @@
+{
+    "testcase": {
+        "section": "C.3",
+        "description": "Tests that the append output redirection operator '>>' creates a new file if it does not exist.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "echo \"first line\" >> new_append_file.txt",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "cat new_append_file.txt",
+                "sequential_outputs": [
+                    {
+                        "text": "first line",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:25:38.458718+05:30",
+            "type": "output",
+            "details": "[16:55:38] "
+        },
+        {
+            "time": "2025-11-19T22:25:38.458997+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:38.459159+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='echo \"first line\" >> new_append_file.txt', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:38.512328+05:30",
+            "type": "output",
+            "details": "[16:55:38] "
+        },
+        {
+            "time": "2025-11-19T22:25:38.512713+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:25:38.512959+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='cat new_append_file.txt', sequential_outputs=[Line(text='first line', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:25:38.565115+05:30",
+            "type": "output",
+            "details": "\"first line\""
+        },
+        {
+            "time": "2025-11-19T22:25:38.565575+05:30",
+            "type": "output",
+            "details": "[16:55:38] "
+        },
+        {
+            "time": "2025-11-19T22:25:38.565630+05:30",
+            "type": "output",
+            "details": "<unknown@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n[16:55:38] <unknown@osntesting:~> echo \"first line\" >> new_append_file.txt\n[16:55:38] <unknown@osntesting:~> cat new_append_file.txt\n\"first line\"\r\n[16:55:38] <unknown@osntesting:~> ",
+    "py_log": "2025-11-19 22:25:37,662 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f014501df0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_45ea6a91c37340e68fdf5966141ab14d', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpqda68ny6:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 1373758\n    child_fd: 132\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e28c40>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:38,458 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:38.458718+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:38] \"\n    }\n2025-11-19 22:25:38,459 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:38.458997+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:38,459 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:38.459159+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='echo \\\"first line\\\" >> new_append_file.txt', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:25:38,512 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:38.512328+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:38] \"\n    }\n2025-11-19 22:25:38,512 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:38.512713+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:38,513 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:38.512959+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='cat new_append_file.txt', sequential_outputs=[Line(text='first line', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:25:38,565 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:38.565115+05:30\",\n        \"type\": \"output\",\n        \"details\": \"\\\"first line\\\"\"\n    }\n2025-11-19 22:25:38,565 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:38.565575+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[16:55:38] \"\n    }\n2025-11-19 22:25:38,565 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:25:38.565630+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<unknown@osntesting:~> \"\n    }\n2025-11-19 22:25:39,351 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - WARNING - Failed to remove container tester_45ea6a91c37340e68fdf5966141ab14d: 409 Client Error for http+docker://localhost/v1.51/containers/176934cd64075d4310643e654e00cb3b3ba630417d1793caa7838d3de505426e?v=False&link=False&force=True: Conflict (\"removal of container 176934cd64075d4310643e654e00cb3b3ba630417d1793caa7838d3de505426e is already in progress\")\n2025-11-19 22:25:39,352 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f014501df0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_45ea6a91c37340e68fdf5966141ab14d', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpqda68ny6:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): '[16:55:38] '\n    after: '<unknown@osntesting:~> '\n    match: <re.Match object; span=(11, 34), match='<unknown@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 1373758\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e28c40>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:25:39,352 - tester.960f0b08-580a-40c6-a461-b33b6d029eed - INFO - Cleaned up temp_dir: /tmp/tmpqda68ny6\n"
+}
